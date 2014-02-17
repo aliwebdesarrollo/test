@@ -1,0 +1,242 @@
+/*------------------------------------------------------------------------
+# Aliweb News WordPress Theme - Julio 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# Copyright (C) 2013 Aliweb Desarrollo. Todos los derechos reservados.
+# @license - Aliweb News WordPress Theme is available under the terms of the GNU General Public License.
+# @license - Aliweb News WordPress Theme esta disponible bajo los terminos de las licencias GNU General Public License.
+# Author: http://www.aliweb.com.ar
+# Autor: http://www.aliweb.com.ar
+# Websites:  http://www.aliweb.com.ar
+-------------------------------------------------------------------------*/
+
+/*Estilos para las noticias del Diario*/
+
+#Cnt-Page
+{
+	width: 690px;
+	float: left;
+	vertical-align: top;
+	min-height: 500px;
+}
+
+#Cnt-Page #Page-detail
+{
+	
+}
+#Page-detail #Page-title
+{
+	font: 400 28px/36px Trebuchet MS;
+	color: #a40000;
+	background-color: #fff;
+	margin-bottom: 10px;
+	padding:0px 20px;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	text-align: justify;
+}
+
+#Page-detail #Page-content
+{
+	padding:10px 20px;
+	margin-bottom: 50px;
+	font: 400 14px/20px Trebuchet MS;
+	text-align: justify;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+#post-content #post-autor
+{
+	font: 800 12px/24px Trebuchet MS;
+	display: block;
+}
+
+#Single-post .single-img
+{
+	max-width: 650px;
+	margin: 10px auto;
+	display: block;
+}
+
+#Single-post #post-content ul, #Single-post #post-content ol
+{
+	display: block;
+	list-style: disc inside none;
+	padding: 0px;
+	margin: 10px 0px;
+}
+
+#Single-post #post-content ul li
+{
+	
+}
+
+#Single-post .fb-comments
+{
+	display: block;
+	margin:10px auto;
+	width: 650px;
+}
+
+
+div.youtube
+{
+	width: 650px;
+	height: 300px;
+	display: block;
+	margin:10px auto;
+}
+
+div.youtube>object
+{
+	width: 650px;
+	height: 300px;
+	display: block;
+	margin:10px auto;
+}
+
+/*Estilo Pagina Staff*/
+.Staff-Cargo
+{
+	margin:0px 0px 10px;
+	font: 600 18px/30px Trebuchet MS;
+	color: #222;
+}
+
+.Staff-Persona
+{
+	margin:2px 0px;
+	font: 400 14px/24px Trebuchet MS;
+	color: #444;
+}
+
+.Staff-Persona:before
+{
+	content: "- ";
+}
+
+.Staff-Persona ~ .Staff-Cargo
+{
+	margin-top: 10px;
+}
+/*Fin Estilo Pagina Staff*/
+
+/*Inicio Estilo Contacto*/
+#Page-content #ContactoMsjConf
+{
+	padding:5px 10px;
+	background-color: #fff;
+	border-radius:10px;
+	box-shadow: 0px 2px 5px 2px #333;
+	margin-bottom: 20px;
+}
+
+#Page-content #ContactoMsjConf h3#title-msj
+{
+	text-align: center;
+	font: 600 16px/24px Trebuchet MS;
+}
+
+#Page-content #ContactoMsjConf p
+{
+	text-align: center;
+	font: 400 12px/20px Trebuchet MS;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+#Contact-form label
+{
+	display: block;
+	margin:0px auto 10px;
+}
+
+#Contact-form label .contact-desc
+{
+	font: 600 16px/24px Trebuchet MS;
+	color: #444;
+	width: 150px;
+	display: inline-block;
+}
+
+#Contact-form label .contact-top
+{
+	vertical-align: top;
+}
+
+#Contact-form label .contact-fields
+{
+	padding:5px;
+	width: 450px;
+}
+
+
+#Contact-form label textarea
+{
+	min-height: 150px;
+}
+
+#Contact-form .cnt-buttons
+{
+	margin-top: 30px;
+	text-align: center;
+}
+
+#Contact-form .cnt-buttons .buttons
+{
+	cursor: pointer;
+	margin: 0px 10px;
+	padding:8px 15px;
+	text-align: center;
+	text-decoration: none;
+	font: 600 16px/24px Trebuchet MS;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fff;
+}
+
+.button-Skyblue
+{
+	border: solid 1px #107cda;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#1aa5fa), to(#207af4));
+	background: -moz-linear-gradient(top,  #1aa5fa,  #207af4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aa5fa', endColorstr='#207af4');
+	color: #fff;
+}
+
+.button-Skyblue:hover
+{
+	text-decoration: none;
+	background: #777;
+	background: -webkit-gradient(linear, left top, left bottom, from(#118ea8), to(#156080));
+	background: -moz-linear-gradient(top,  #118ea8,  #156080);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#118ea8', endColorstr='#156080');
+	color: #fff;
+}
+
+.button-Skyblue:active
+{
+	position: relative;
+	top: 1px;
+	color: #ddd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#207af4), to(#1aa5fa));
+	background: -moz-linear-gradient(top,  #207af4,  #1aa5fa);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#207af4', endColorstr='#1aa5fa');
+}
+/*Fin Estilo Contacto*/

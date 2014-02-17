@@ -1,0 +1,237 @@
+<?php
+/*------------------------------------------------------------------------
+# Aliweb News V1.0 Julio 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# @licencia - Aliweb News Theme esta protegida bajo los terminos de las licencias GNU General Public License.
+# Autor: http://www.aliweb.com.ar - Juan Manuel Piñeiro
+-------------------------------------------------------------------------*/
+  $cat=  get_categories();
+  $option=""; 
+  foreach ($cat as $category) 
+  {
+	$option .= $category->cat_name.", ";
+  }
+?>
+<!DOCTYPE html>
+<html lang="es">
+<!--START HEAD-->
+<head>
+<meta http-equiv="content-type" content="text/html;" >
+<meta charset="UTF-8">
+<meta name="keywords" content="Diario esnoticia, esnoticia, es noticia, diario es noticia, periodismo, ministro, gobernador, presidente, intendente, Argentina, noticia, diario online, diario on-line, diario on line, informacion, destacados, clasificados, flash, <?php echo $option?> " >
+<meta name="country" content="Argentina" >
+<meta name="copyright" content="" >
+<meta name="coverage" content="Worldwide" >
+<meta name="identifier" content="http://www.diarioesnoticia.com" >
+<meta content="spanish" name="language" >
+<meta content="General" name="RATING" >
+<meta name="robots" content="index,follow" >
+<meta name="author" content="aliweb" >
+<?php
+if(is_single())
+{
+	?>
+<meta property="og:url" content="<?php echo get_permalink($post->ID)?>">
+<meta property="og:title" content="<?php echo htmlspecialchars($post->post_title, ENT_COMPAT, 'UTF-8');?>">
+<?php
+$og_image = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID,'banner200x200'));
+if(!$og_image) 
+{
+	$og_image[0] = get_template_directory_uri().'/images/logo-200x120.png';
+}
+$og_cats=get_the_category($post->ID);
+$og_sections="";
+foreach($og_cats as $og_cat)
+{
+	$og_sections.=$og_cat->cat_name;
+}
+$og_desc=htmlspecialchars(substr(strip_tags($post->post_content),0,200), ENT_COMPAT, 'UTF-8');
+$og_desc = str_replace("\n", '', $og_desc);
+$og_desc = str_replace("\r", '', $og_desc);?>
+<meta property="og:image" content="<?php echo $og_image[0];?>">
+<meta property="og:description" content="<?php echo $og_desc;?>">
+<meta property="og:section" content="<?php echo $og_sections;?>">
+<meta property="og:site_name" content="diarioesnoticia.com">
+<meta property="fb:app_id" content="613008052086419">
+<?php
+}
+if(is_home())
+{
+	?>
+<meta property="og:url" content="diarioesnoticia.com">
+<meta property="og:title" content="Diario Es Noticia">
+<meta property="og:description" content=" Información que importa, aquí y ahora">
+<meta property="og:image" content="<?php echo get_template_directory_uri().'/images/logo-200x120.png'?>">
+<meta property="og:site_name" content="diarioesnoticia.com">
+<?php
+}?>
+<title><?php
+global $page, $paged;
+bloginfo( 'name' );
+wp_title( '|', true, 'left' );
+$site_description = get_bloginfo( 'description', 'display' );
+if ( $site_description && ( is_home() || is_front_page() ) )
+	echo " | $site_description";
+if ( $paged >= 2 || $page >= 2 )
+	echo ' | ' . sprintf( __( 'Page %s', 'twentyten' ), max( $paged, $page ) );
+?></title>
+  
+<link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>?v=20130701">
+<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
+<link rel="shortcut icon" href="<?php bloginfo('stylesheet_directory'); ?>/images/favicon.ico?v=20130701">
+<?php wp_head(); ?>
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-35013979-5']);
+	_gaq.push(['_setDomainName', 'diarioesnoticia.com']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+	 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	 var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+<?php
+if(is_single())
+{
+?>
+<script type="text/javascript" >
+		$(document).ready(function()
+		{
+			$(".pic-list").colorbox({rel:'pic-list', transition:"elastic", speed:600, maxWidth:"90%", maxHeight:"90%", fixed:true});
+		});
+</script>
+<?php
+}
+?>
+</head>
+<!--END HEAD-->
+<!--START BODY-->
+<body>
+	<?php
+	if(is_single())
+	{
+		?>
+	<div id="fb-root"></div>
+	<script>
+	(function(d, s, id) {
+  		var js, fjs = d.getElementsByTagName(s)[0];
+  			if (d.getElementById(id)) return;
+  			js = d.createElement(s); js.id = id;
+  			js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=216971985133198";
+	  		fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+		<?php
+	}
+	?>
+	<!-- Header -->
+	<header >
+		<!--BarHeader-->		
+		<div id="CntBarHeader">
+			<div id="BarHeader" class="SiteCnt">
+				<!-- today date -->
+				<div class="today-date">
+	      <?php setlocale(LC_ALL, 'es_ES');?>
+			<?php
+			$dia=array("Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo");
+			$day=array("Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday");
+			$mes=array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+			$month=array("January","Febrary","March","April","May","June","July","August","September","October","November","Deceember");
+			$date=date("l, d F Y");
+			$date=str_replace($day,$dia,$date);
+			$date=str_replace($month,$mes,$date);
+			?>
+				<p><?php echo $date?></p>
+				</div>
+				<!-- / today date -->
+				<!--Buscador de noticias-->
+					<form role="search" method="get" id="searchform" action="<?php echo get_option('home'); ?>" >
+						<label>
+							<input type="text" value="" name="s" id="s" placeholder="Ingrese palabras a buscar">
+						</label>
+						<label>
+							<input type="submit" id="searchsubmit" value="Buscar" >
+						</label>
+					</form>
+				<!--/Buscador de noticias-->
+			</div>
+		</div>
+		<!-- /BarHeader -->
+		
+		<!-- Menu Suplementos -->
+		<div id="CntSup">
+	    	<nav id="MenuSuplementos" class="SiteCnt">
+	    		<h1>Suplementos</h1>
+	    		<ul id="SupList">
+	    			<li id="SupDep">
+	    				<a href="<?php echo bloginfo('url')?>/category/deportes" class="SupLink" >Deportes</a>
+	    			</li>
+	    			<li id="SupCul">
+	    				<a href="<?php echo bloginfo('url')?>/category/cultura" class="SupLink" >Cultura</a>
+	    			</li>
+	    			<li  id="Sup5ta">
+	    				<a href="<?php echo bloginfo('url')?>/category/locales" class="SupLink">5ta Seccion</a>
+	    				<ul class="SubSupList">
+	    				<?php
+	    				$cat=get_categories("child_of=4");
+	    				foreach ($cat as $categoria)
+	    				{
+	    					?>
+	    					<li><a href="<?php echo bloginfo('url')?>/category/locales/<?php echo $categoria->slug?>"><?php echo $categoria->cat_name?></a></li>
+	    					<?php
+	    				}
+	    				?>
+	    				</ul>
+	    			</li>
+	    			<li id="SupTec">
+	    				<a href="<?php echo bloginfo('url')?>/category/tecnologia" class="SupLink"  >Tecnologia</a>
+	    			</li>
+	    		</ul>
+	    	</nav>
+	    </div>
+		<!-- /Menu Suplementos -->
+    	
+    	<!-- Logo -->
+    	<div id="CntHeader">
+    		<div id="CntInfo" class="SiteCnt">
+    			<!-- Logo -->
+				<div id="CntLogo">
+					<a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>"><img class="logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>"></a>
+				</div>
+	    		<!-- /Logo -->
+	    		
+    			<div id="CntSociales">
+    				<a href="mailto:prensa@diarioesnoticia.com?Subject=Noticias%20Ciudadanas" id="envianos-tu-noticia"></a>
+	    			<!-- Social Networks -->	    		
+		    		<div id="CntComunica">
+		    			<a href="https://www.facebook.com/DiarioEsNoticia" id="ComFacebook" class="ComIcon" target="_blank" title="DiarioEsNoticia"></a>
+	   	 			<a href="https://www.twitter.com/DiarioEsNoticia" id="ComTwitter"  class="ComIcon" target="_blank" title="@DiarioEsNoticia"></a>
+	    				<a href="http://www.youtube.com/user/DiarioEsNoticiaTV" id="ComYoutube"  class="ComIcon" target="_blank" title="DiarioEsNoticiaTV"></a>
+	    				<a href="<?php echo bloginfo('url')?>/contactenos" id="ComMail"  class="ComIcon" target="_blank" title="Contactanos"></a>
+	    			</div>
+	    		</div>
+	    		<!-- /Social Networks -->
+    			<!-- Clima -->
+				<div id="CntClima" class="LoadingBar"></div>
+	    		<!-- /Clima -->
+	    		
+	    	</div>
+    </div>
+		
+	</header>
+  <!-- /Header -->
+  <!-- Main Menu -->
+
+  <?php wp_nav_menu( array('container'=> 'nav', 
+  									'container_id' => 'mainmenu', 
+  									'depth' => 2, 
+  									'menu_id'=>'aliweb-menu', 
+  									'menu_class' => 'head-menu',
+  									'theme_location' => 'topmenu'
+  									) ); ?>
+  <!-- /Main Menu -->
+  
+  <!--Site Container - Wrap-->
+  <div class="SiteCnt">

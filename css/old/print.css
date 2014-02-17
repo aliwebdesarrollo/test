@@ -1,0 +1,295 @@
+/*------------------------------------------------------------------------
+# Global News WordPress Theme v1.0 - August 2010
+# ------------------------------------------------------------------------
+# Copyright (C) 2008 instantShift. All Rights Reserved.
+# @license - Global News WordPress Theme is available under the terms of the GNU General Public License.
+# Author: http://www.rapidxhtml.com
+# Websites:  http://www.instantshift.com
+-------------------------------------------------------------------------*/
+
+body {
+    margin: 0px auto;
+    padding: 0px;
+    font: 70%/160% Verdana, Arial, Helvetica, sans-serif;
+    width: 770px;
+    color: #000000;
+}
+
+a, a:visited, a:hover {
+    color: #990000;
+    text-decoration: none;
+}
+
+p {
+    margin: 0px 0px 14px;
+}
+
+h1 {
+    margin: 10px 0px 20px;
+    font: 260%/100% "Trebuchet MS", Tahoma, Arial;
+    border-bottom: 2px solid #000000;
+    width: 100%;
+    text-transform: uppercase;
+    text-align: right;
+}
+
+h1 a, h1 a:visited{
+    color: #000000;
+}
+
+h2 {
+    margin: 0px 0px 2px;
+    padding-bottom: 4px;
+    border-bottom: 1px dotted #CCCCCC;
+    letter-spacing: -1px;
+    font: normal 180% "Trebuchet MS", Tahoma, Arial;
+}
+
+h2 a, h2 a:visited{
+    color: #000000;
+}
+
+h3 {
+    color: #666666;
+    margin: 20px 0px 0px;
+    font: bold 110% Arial;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#header {
+    display: none;
+}
+
+#mainmenu, #middle_alt {
+    display: none;
+}
+
+#left_single {
+    display: none;
+}
+
+#left {
+    display: none;
+}
+
+#right {
+    display: none;
+}
+
+#footer {
+    display: none;
+}
+
+.commentlist {
+    display: none;
+}
+
+h1{
+    float: left;
+    text-align: left;
+}
+
+#content img{
+    float: left;
+    margin: 20px 20px 0 0;
+}
+
+#comments {
+    display: none;
+}
+
+.sub_heading {
+    color: #666666;
+    margin: 10px 0px 0px 0px;
+    font: normal 140% Tahoma, Arial, sans-serif;
+}
+
+.cat_heading-alt {
+    color: #666666;
+    margin: 0px;
+    padding-bottom: 4px;
+    font: normal 150% Tahoma, Arial, sans-serif;
+    clear: both;
+    border-bottom: 1px dotted #CCCCCC;
+}
+
+h4 {
+    font: normal 150% Tahoma, Arial, sans-serif;
+    color: #000000;
+    margin: 0px;
+}
+
+ul {
+    padding: 0px;
+    margin: 5px 0px 15px 16px;
+}
+
+ul li ul{
+    padding: 0px;
+    margin: 0px 0px 5px 16px;
+}
+
+ul li {
+    margin: 0px;
+    padding: 0px;
+}
+
+ol {
+    padding: 0px;
+    margin-top: 5px;
+    margin-right: 0px;
+    margin-bottom: 15px;
+    margin-left: 25px;
+}
+
+ol li {
+    margin: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+}
+
+hr {
+    height: 1px;
+}
+
+hr.hidden {
+    display: none;
+}
+
+form {
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    border: none;
+}
+
+small {
+    font-size: 85%;
+    color: #666666;
+    line-height: 120%;
+}
+
+.post {
+    margin: 0px 0px 20px;
+}
+
+.postdate {
+    font-size: 90%;
+    color: #666666;
+    float: left;
+}
+
+.postcomment {
+    font-size: 90%;
+    float: right;
+}
+
+.postcat {
+    font-size: 90%;
+    color: #666666;
+    float: left;
+    margin-left: 15px;
+}
+
+.postjumpcomment {
+    display: none;
+}
+
+.postcat a, .postcat a:visited {
+    color: #666666;
+}
+
+.entry {
+    clear: both;
+    padding-top: 10px;
+}
+
+img.left {
+    float: left;
+    margin: 4px 10px 5px 0px;
+    border: 1px solid #CCCCCC;
+    padding: 4px;
+}
+
+.footer_nav {
+    display: none;
+}
+
+.copyright {
+    text-align: right;
+    font-size: 85%;
+    clear: both;
+    margin: 20px 0px 0px;
+    color: #666666;
+}
+
+.copyright a{
+    color: #666666;
+}
+
+.comment-txtfield {
+    width: 153px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}
+
+.comment-box {
+    width: 375px;
+    height: 135px;
+    background: #FFFFFF;
+    border: 1px solid #CCCCCC;
+}
+
+#commentform {
+    display: none;
+}
+
+.commentlist {
+    list-style: none;
+    margin: 0px 0px 15px;
+    padding: 0px;
+    line-height: 130%;
+}
+
+.commentlist p{
+    margin: 10px 0px;
+}
+
+.commentlist li{
+    margin: 10px 7px;
+}
+
+.gravatar {
+    display: none;
+}
+
+.comment-entry {
+    width: 100%;
+}
+
+.comment-number {
+    font-size: 14px;
+    color: #CCCCCC;
+    float: right;
+}
+
+.commentlist cite {
+    font: 130% Tahoma, "Trebuchet MS", Arial;
+}
+
+#respond {
+    display: none;
+}
+
+.ad, .ad-banner, .ad-banner2 {
+    display: none;
+}
+
+#post-links{
+		display: none;
+}

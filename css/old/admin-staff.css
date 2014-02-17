@@ -1,0 +1,380 @@
+.staff-wrap
+{
+	/*width:90%;*/
+  	margin:5px 0 0 0;
+  	font: 400 14px/20px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+}
+
+.staff-wrap #cargos-details
+{
+	margin:30px 0px 10px;
+	min-width: 800px;
+	display: block;
+}
+
+#cargos-details .cargo-col select
+{
+	font: 600 12px/30px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	height: 30px;
+	margin:0px;
+	width: 100%;
+	border:none;
+	vertical-align: top;
+}
+
+#cargos-details .cargo-detail-line 
+{
+	padding:2px 10px 2px;
+	margin:0px 0px 10px 10px;
+	display: block;
+	width: 350px;
+	border:2px solid #ccc;
+	border-radius:10px;
+	box-shadow:0px 0px 2px #777;
+	float: left;
+	position: relative;
+}
+
+.cargo-detail-line .Staff-cargo-edit-icon
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 24px;
+	height: 24px;
+	background: url('../images/staff/edit.jpeg') no-repeat center center transparent;
+	border-radius:0px 10px 0px 0px;
+	display: none;
+}
+
+.cargo-detail-line:hover .Staff-cargo-edit-icon
+{
+	display: block;
+}
+
+.cargo-detail-line .cargo-line
+{
+	font: 400 12px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	margin:0px;
+}
+
+.cargo-detail-line .cargo-line span
+{
+	font: 600 12px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	color: #3B5998;
+}
+
+#cargos-details .cargo-detail-line:hover
+{
+	background-color: rgb(58,89,152);
+	background-color: rgba(58,89,152,0.3);
+	border-color: #3B5998;
+}
+
+
+
+#cargos-details #cargo-empty, #staffs-details #staff-empty
+{
+	font: 600 16px/30px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	display: block;
+	text-align: center;
+	margin:0px;
+	padding:0px;
+}
+
+#cargos-details #cargo-empty p, #staffs-details #staff-empty p
+{
+	margin:0px;
+	padding:0px;
+}
+
+
+
+.staff-wrap #staffs-details
+{
+	margin:30px 0px 10px;
+	min-width: 800px;
+	display: block;
+}
+
+#staffs-details .staff-col select
+{
+	font: 600 12px/30px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	height: 30px;
+	margin:0px;
+	width: 100%;
+	border:none;
+	vertical-align: top;
+}
+
+#staffs-details .staff-detail-line 
+{
+	padding:2px 10px 2px;
+	margin:0px 0px 10px 10px;
+	display: block;
+	width: 350px;
+	border:2px solid #ccc;
+	border-radius:10px;
+	box-shadow:0px 0px 2px #777;
+	float: left;
+	position: relative;
+}
+
+.staff-detail-line .Staff-edit-icon
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	width: 24px;
+	height: 24px;
+	background: url('../images/staff/edit.jpeg') no-repeat center center transparent;
+	border-radius:0px 10px 0px 0px;
+	display: none;
+}
+
+.staff-detail-line:hover .Staff-edit-icon
+{
+	display: block;
+}
+
+.staff-detail-line .staff-line
+{
+	font: 400 12px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	margin:0px;
+}
+
+.staff-detail-line .staff-line span
+{
+	font: 600 12px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	color: #3B5998;
+}
+
+#staffs-details .staff-detail-line:hover
+{
+	background-color: rgb(58,89,152);
+	background-color: rgba(58,89,152,0.3);
+	border-color: #3B5998;
+}
+
+#cnt-buttons
+{
+	margin:25px 0px 0px;
+	padding:20px 10px;
+}
+
+.staff-button
+{
+	cursor: pointer;
+	margin: 10px 5px 0px;
+	padding:5px 10px 5px 35px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fff;
+	clear: both;
+}
+
+.button-Skyblue-add
+{
+	border: solid 1px #107cda;
+	background: #f78d1d;
+	background: url("../images/staff/add-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#1aa5fa), to(#207af4));
+	background: url("../images/staff/add-button.png") no-repeat center left, -moz-linear-gradient(top,  #1aa5fa,  #207af4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aa5fa', endColorstr='#207af4');
+	color: #fff;
+}
+
+.button-Skyblue-add:hover
+{
+	text-decoration: none;
+	background: #777;
+	background: url("../images/staff/add-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#118ea8), to(#156080));
+	background: url("../images/staff/add-button.png") no-repeat center left, -moz-linear-gradient(top,  #118ea8,  #156080);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#118ea8', endColorstr='#156080');
+	color: #fff;
+}
+
+.button-Skyblue-add:active
+{
+	position: relative;
+	top: 1px;
+	color: #ddd;
+	background: url("../images/staff/add-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#207af4), to(#1aa5fa));
+	background: url("../images/staff/add-button.png") no-repeat center left, -moz-linear-gradient(top,  #207af4,  #1aa5fa);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#207af4', endColorstr='#1aa5fa');
+}
+
+.button-Skyblue-save
+{
+	border: solid 1px #107cda;
+	background: #f78d1d;
+	background: url("../images/staff/save-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#1aa5fa), to(#207af4));
+	background: url("../images/staff/save-button.png") no-repeat center left, -moz-linear-gradient(top,  #1aa5fa,  #207af4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aa5fa', endColorstr='#207af4');
+	color: #fff;
+}
+
+.button-Skyblue-save:hover
+{
+	text-decoration: none;
+	background: #777;
+	background: url("../images/staff/save-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#118ea8), to(#156080));
+	background: url("../images/staff/save-button.png") no-repeat center left, -moz-linear-gradient(top,  #118ea8,  #156080);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#118ea8', endColorstr='#156080');
+	color: #fff;
+}
+
+.button-Skyblue-save:active
+{
+	position: relative;
+	top: 1px;
+	color: #ddd;
+	background: url("../images/staff/save-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#207af4), to(#1aa5fa));
+	background: url("../images/staff/save-button.png") no-repeat center left, -moz-linear-gradient(top,  #207af4,  #1aa5fa);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#207af4', endColorstr='#1aa5fa');
+}
+
+.button-Skyblue-cancel
+{
+	border: solid 1px #107cda;
+	background: #f78d1d;
+	background: url("../images/staff/cancel-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#1aa5fa), to(#207af4));
+	background: url("../images/staff/cancel-button.png") no-repeat center left, -moz-linear-gradient(top,  #1aa5fa,  #207af4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aa5fa', endColorstr='#207af4');
+	color: #fff;
+}
+
+.button-Skyblue-cancel:hover
+{
+	text-decoration: none;
+	background: #777;
+	background: url("../images/staff/cancel-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#118ea8), to(#156080));
+	background: url("../images/staff/cancel-button.png") no-repeat center left, -moz-linear-gradient(top,  #118ea8,  #156080);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#118ea8', endColorstr='#156080');
+	color: #fff;
+}
+
+.button-Skyblue-cancel:active
+{
+	position: relative;
+	top: 1px;
+	color: #ddd;
+	background: url("../images/staff/cancel-button.png") no-repeat center left, -webkit-gradient(linear, left top, left bottom, from(#207af4), to(#1aa5fa));
+	background: url("../images/staff/cancel-button.png") no-repeat center left, -moz-linear-gradient(top,  #207af4,  #1aa5fa);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#207af4', endColorstr='#1aa5fa');
+}
+
+
+.button-Skyblue
+{
+	border: solid 1px #107cda;
+	background: #f78d1d;
+	background: no-repeat-webkit-gradient(linear, left top, left bottom, from(#1aa5fa), to(#207af4));
+	background: -moz-linear-gradient(top,  #1aa5fa,  #207af4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aa5fa', endColorstr='#207af4');
+}
+
+.button-Skyblue:hover
+{
+	text-decoration: none;
+	background: #777;
+	background: -webkit-gradient(linear, left top, left bottom, from(#118ea8), to(#156080));
+	background: -moz-linear-gradient(top,  #118ea8,  #156080);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#118ea8', endColorstr='#156080');
+	color: #fff;
+}
+
+.button-Skyblue:active
+{
+	position: relative;
+	top: 1px;
+	color: #ddd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#207af4), to(#1aa5fa));
+	background: -moz-linear-gradient(top,  #207af4,  #1aa5fa);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#207af4', endColorstr='#1aa5fa');
+}
+
+#Staff-cover
+{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	background-color: rgba(0,0,0,0.3);
+	z-index: 10000;
+}
+
+#Staff-cover.Staff-cover-waiting
+{
+	background: url('../images/staff/loading.gif') no-repeat center center rgba(0,0,0,0.3);
+}
+
+
+#Staff-cover #Cnt-edit-form
+{
+	width: 400px;
+	height: 230px;
+	background-color: #fff;
+	border:4px solid rgba(210,210,210,0.5);
+	border-radius:10px;
+	/*margin:100px auto;*/
+	margin:100px 300px;
+	position: fixed;
+	z-index: 15000;
+}
+
+#Staff-cover #Cnt-edit-form h2
+{
+	text-align: center;
+}
+
+#Staff-cover #Cnt-edit-form label
+{
+	display: block;
+	margin:5px 0px;
+	padding:2px 5px 2px 15px;
+	cursor: default;
+}
+
+#Cnt-edit-form label p
+{
+	font: 600 12px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	color: #3B5998;
+	margin:0px 5px 0px 0px;
+	display: inline-block;
+	min-width: 60px;
+}
+
+
+#Cnt-edit-form label input, #Cnt-edit-form label select
+{
+	width: 300px;
+	font: 400 12px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+}
+
+#Cnt-edit-form label select option
+{
+	padding: 2px;
+}
+
+#Staff-cover #Cnt-edit-form fieldset
+{
+	margin-top: 20px;
+	text-align: center;
+}
+
+#Staff-form-cover
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: url('../images/staff/loading-small.gif') no-repeat center center rgba(255,255,255,1);
+}

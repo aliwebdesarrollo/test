@@ -1,0 +1,1350 @@
+/*------------------------------------------------------------------------
+# Aliweb News WordPress Theme - Julio 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# Copyright (C) 2013 Aliweb Desarrollo. Todos los derechos reservados.
+# @license - Aliweb News WordPress Theme is available under the terms of the GNU General Public License.
+# @license - Aliweb News WordPress Theme esta disponible bajo los terminos de las licencias GNU General Public License.
+# Author: http://www.aliweb.com.ar
+# Autor: http://www.aliweb.com.ar
+# Websites:  http://www.aliweb.com.ar
+-------------------------------------------------------------------------*/
+
+/*Inicio estilos Standar Generales*/
+
+*
+{
+	margin:0px;
+	padding:0px;
+}
+
+*, *:hover, *:visited, *:link{
+	text-decoration: none;
+	color: #000;
+}
+
+html,body
+{
+	margin:0px;
+	padding:0px;
+}
+body
+{
+	background-color:#E2E2DA;
+	font: 400 14px/16px Trebuchet MS, Georgia, Arial, Times,serif;
+}
+
+h1,h2,h3,h4,h5,h6,img,div,p
+{
+	border:none;
+	padding:0px;
+	margin:0px;
+}
+
+textarea
+{
+	resize:none;
+}
+
+ul
+{
+	list-style: none;
+}
+
+.SiteCnt
+{
+	width: 950px;
+	margin:0px auto;
+}
+
+#UltimasNoticias
+{
+	background-color:#a40000;
+	color:#fff;
+	font:400 36px/30px Trebuchet MS;
+	padding:5px 10px;
+}
+
+h3.pagetitle
+{
+	background-color: #fff;
+	color: #a40000;
+	padding: 5px;
+	font:400 24px/30px Trebuchet MS;
+	text-transform:capitalize;
+}
+
+.NTitle
+{
+	color: #000;
+	font: 400 14px/25px Trebuchet MS, Georgia, sans-serif;
+	word-break:keep-all ;
+	word-wrap: break-word;
+	text-align: justify;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+
+}
+
+.categoria
+{
+	font-family: Georgia;
+}
+
+#Sidebar
+{
+	width: 250px;
+	float: right;
+	vertical-align: top;
+	min-height: 600px;
+	padding-left: 9px;
+	overflow: hidden;
+	border-left:1px solid #aaa;
+}
+/*Fin estilos Standar Generales*/
+
+/*Inicio Estilo Header*/
+header
+{
+	height: 200px;
+	position: relative;
+	margin:0px auto;
+	background:#E2E2DA url(../images/page-bg.jpg) 50% 0 repeat-x;
+}
+
+#CntBarHeader
+{
+	position: absolute;
+	top: 0px;
+	height: 30px;
+	background: #E24848;
+	width: 100%;
+}
+
+#CntBarHeader #BarHeader
+{
+	height: 30px;
+}
+
+#CntBarHeader #searchform
+{
+	float: right;
+	margin:0px;
+	padding: 1px 5px 3px;
+	background: none;
+}
+
+#searchform input[type=text]
+{
+	font: 400 12px/20px Trebuchet MS;
+	padding:2px 5px;
+	width: 200px;
+}
+
+#searchform input[type=submit]
+{
+	font: 800 12px/18px Trebuchet MS;
+	background-color:rgba(220,220,220,1);
+	color: #000;
+	padding:2px 10px;
+	border:1px solid #fff;
+	border-radius:3px;
+}
+
+#BarHeader .today-date
+{
+	margin-left: 5px;
+	float: left;
+	padding:0px;
+	text-align: left;	
+}
+
+.today-date p
+{
+	line-height: 30px;
+	color: #fff;
+	z-index: 1000;
+}
+
+#CntSup
+{
+	position: absolute;
+	top: 30px;
+	height: 30px;
+	width: 100%;
+	background: #fff;
+}
+#MenuSuplementos
+{
+	position: relative;
+	height: 30px;
+}
+
+#MenuSuplementos h1
+{
+	color: #000;
+	margin:0px 0px 0px 5px;
+	font: 600 20px/30px Trebuchet MS;
+	float: left;
+}
+
+#MenuSuplementos #SupList
+{
+	float: right;
+	list-style: none;
+	margin:0px;
+}
+
+#MenuSuplementos #SupList>li
+{
+	float: right;
+	display: block;
+}
+
+#SupList #SupTec:hover>a
+{
+	color: #00f;
+	border-bottom:2px solid #00a;
+}
+
+#SupList #Sup5ta:hover>a
+{
+	color: #f00;
+	border-bottom:2px solid #f00;
+}
+
+#SupList #SupCul:hover>a
+{
+	color: #0a0;
+	border-bottom:2px solid #0a0;
+}
+
+#SupList #SupDep:hover>a
+{
+	color: #f60;
+	border-bottom:2px solid #f60;
+}
+
+#SupList li .SupLink
+{
+	font: 400 14px/30px Trebuchet MS;
+	height: 30px;
+	border-right: 1px solid #aaa;
+	padding:0px 20px;
+	color: #333;
+	display: block;
+}
+
+
+#SupList li .SubSupList
+{
+	list-style: none;
+	display: none;
+	position: relative;
+	background-color:#aaa;
+	border-radius:0px 0px 5px 5px;
+	overflow: hidden;
+	margin-top: -2px;
+}
+
+
+#SupList>li:hover>.SubSupList
+{
+	display: inline-block;
+	z-index: 9999;
+	position: absolute;
+}
+
+.SubSupList li
+{
+	min-height: 20px;
+	min-width: 150px;
+	
+}
+
+.SubSupList li:hover a
+{
+	background-color: #fff;
+	color: #000;
+		
+}
+
+.SubSupList li a
+{
+	display: block;
+	font: 400 11px/16px Trebuchet MS ;
+	padding:5px 10px;
+}
+
+
+#CntHeader
+{
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 60px;
+	height: 140px;
+}
+
+#CntInfo
+{
+	/*position: relative;*/
+	height: 140px;
+}
+#CntInfo #CntLogo
+{
+	/*position: absolute;
+	top: 20px;
+	left: 0px;*/
+	float: left;
+	margin-top: 20px;
+	width: 420px;
+	max-height: 110px;
+}
+
+#CntInfo #CntSociales
+{
+	width: 235px;
+	margin:5px 10px 0px 15px;
+	float: left;
+}
+
+#CntInfo #CntSociales #envianos-tu-noticia
+{
+	width: 235px;
+	height: 94px;
+	display: block;
+	background: transparent url('../images/envianos-tu-noticia.png') no-repeat center center;
+	margin-top: 5px;
+}
+
+#CntComunica
+{
+	/*position: absolute;*/
+	width: 230px;
+	height: 30px;
+	/*top: 10px;
+	right: 270px;*/
+	/*margin-top: 10px;
+	float: right;*/
+	text-align: center;
+	
+	
+}
+
+#CntComunica .ComIcon
+{
+	/*float: right;*/
+	display: inline-block;
+	/*margin-left: 10px;
+	margin-bottom: 2px;*/
+	margin:0px 10px;
+	opacity: 0.7;
+	height: 28px;
+	width: 28px;
+}
+
+/*#CntComunica .ComIcon:first-of-type
+{
+	margin-top: 2px;
+}*/
+
+#CntComunica .ComIcon:hover
+{
+	opacity: 1;
+}
+
+#CntComunica #ComFacebook
+{
+	background: transparent url('../images/facebook.png') no-repeat center center;
+}
+
+#CntComunica #ComYoutube
+{
+	background: transparent url('../images/youtube.png') no-repeat center center;
+}
+
+#CntComunica #ComTwitter
+{
+	background: transparent url('../images/twitter.png') no-repeat center center;
+}
+
+#CntComunica #ComMail
+{
+	background: transparent url('../images/email-blue.png') no-repeat center center;
+}
+
+/*Fin Estilo Header*/
+
+
+/*Inicio estilo Menu Header*/
+
+/*Fin Estilo Menu Header*/
+
+/*Inicio Estilo Footer*/
+footer
+{
+	clear: both;
+	margin:20px 0px 0px;
+	padding:25px 0px 0px;
+	width: 100%;
+	height: 300px;
+	background-color: rgba(200,200,200,1);
+}
+
+#CntFoo
+{
+	position: relative;
+	height: 100%;
+}
+
+.Foo_Cols
+{
+	width: 200px;
+	margin:0px 20px;
+	min-height:200px;
+	overflow: hidden; 
+	float: left;
+}
+
+.Foo_Cols #FootSection
+{
+	font: 600 18px/36px Trebuchet MS ;
+	color: #000;
+	text-align: left;
+	margin: 0px auto 20px;
+}
+
+.Foo_Cols#FooLogo
+{
+	width: 420px;
+}
+
+.Foo_Cols#FooSocial h3
+{
+	font: 600 18px/36px Trebuchet MS ;
+	color: #000;
+	margin:0px auto 20px;
+	text-align: center; 
+}
+
+.Foo_Cols#FooSocial .SocialLinks
+{
+	font: 400 14px/28px Trebuchet MS;
+	display: block;
+	padding-left: 32px;
+	height: 28px;
+	margin: 0px auto 10px;
+	opacity: 0.7;
+	vertical-align: top;
+}
+
+.Foo_Cols#FooSocial .SocialLinks:hover
+{
+	opacity: 1;
+}
+
+.Foo_Cols#FooSocial #FooFacebook
+{
+	background: transparent url('../images/facebook.png') no-repeat left center;
+}
+
+.Foo_Cols#FooSocial #FooTwitter
+{
+	background: transparent url('../images/twitter.png') no-repeat left center;
+}
+
+.Foo_Cols#FooSocial #FooYoutube
+{
+	background: transparent url('../images/youtube.png') no-repeat left center;
+}
+
+.Foo_Cols#FooSocial #FooMail
+{
+	background: transparent url('../images/email-blue.png') no-repeat left center;
+}
+
+#footermenu #anfoot
+{
+	width: auto;
+}
+
+#anfoot li
+{
+	margin-bottom: 2px;
+	clear: both;
+}
+
+#anfoot .menu-item a
+{
+	color: #222;
+	font: 400 14px/20px Trebuchet MS ;
+}
+
+#anfoot .menu-item a:hover
+{
+	color: rgba(255,0,0,0.9);
+}
+
+#FooSuplem
+{
+	width: 100%;
+	clear: both;
+	text-align: center;
+}
+
+#FooSuplem h1
+{
+	color: rgb(0, 0, 0); 
+	text-align: center; 
+	margin: 20px auto 10px;
+	font: 800 32px/36px Trebuchet MS;
+}
+
+#FooSuplem .FooSuplemento
+{
+	margin:0px 5px;
+	font: 400 16px/30px Trebuchet MS;
+	color: #222;
+}
+
+
+#FooSuplem .FooSuplemento#FooTec:hover
+{
+	color: #00f;
+}
+
+#FooSuplem .FooSuplemento#Foo5ta:hover
+{
+	color: #f00;
+}
+
+#FooSuplem .FooSuplemento#FooCul:hover
+{
+	color: #0a0;
+}
+
+#FooSuplem .FooSuplemento#FooDep:hover
+{
+	color: #f60;
+}
+
+.copyright
+{
+	position: absolute;
+	bottom: 0px;
+	margin:30px auto 0px;
+	padding:5px 0px;
+	width: 100%;
+	color: #000;
+	text-align: center;
+}
+
+.copyright a
+{
+	color: #3B5998;
+}
+/*Fin Estilo Footer*/
+
+
+
+
+
+/*Inicio estilo Etiquetas de Categorias*/
+.categoria
+{
+	border-radius:2px;
+	position: relative;
+	padding:1px 0px;
+	top: 1px;
+	clear: both;
+}
+
+.categoria a
+{
+	font-size: 10px;
+	line-height: 15px;
+	color:#fff;
+	padding:0px 5px;
+	margin:0px;
+	display: inline-block;
+	border-radius:2px;
+	background-color: #880000;
+
+	text-transform: uppercase;
+}
+
+.categoria a:hover
+{
+	background-color: #000;
+}
+/*Fin estilo Etiquetas de Categorias*/
+
+
+/*Inicio estilo Seccion Ultimo Momento*/
+#LastMoment
+{
+	height: 250px;
+	margin-bottom:20px;
+	position: relative;
+	overflow: hidden;
+}
+
+#LastMoment img
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	height: 250px;
+	width: 950px;
+}
+
+#LastMoment .DateTime
+{
+	position: absolute;
+	top: 0px;
+	right: 0px; 
+	color: rgb(255, 255, 255); 
+	padding: 5px; 
+	background-color: rgba(255, 0, 0, 0.65);
+	border-radius:0px 0px 0px 3px;
+	font-size: 16px;
+}
+
+#LastMoment h1
+{
+	position: absolute;
+	top: 0px;
+	left: 0px; 
+	color: rgb(255, 255, 255); 
+	padding: 5px; 
+	background-color: rgba(255, 0, 0, 0.65);
+	border-bottom:2px solid #fff;
+	border-right:2px solid #fff;
+	border-radius:0px 0px 3px 0px;
+	font-size: 28px;
+	text-align: justify;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+
+#LastMoment a
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 930px;
+	padding:10px;
+	background-color: rgba(50,50,50,0.75);
+	color: #fff;
+	font-size: 28px;
+	line-height: 34px;
+	max-height: 34px;
+}
+
+/*Fin estilo Seccion Ultimo Momento*/
+
+/*Inicio estilo Seccion Superior*/
+.CntPrincipal
+{
+	height: 630px;
+	margin-bottom: 10px;
+	/*position: relative;*/
+}
+/*Inicio Estilo Noticias Destacadas*/
+.CntNewsDest
+{
+	float: left;
+	width: 505px;
+	height: 630px;
+	background: transparent url('../images/sep_princ.png') repeat-x center center;
+}
+
+.NewsDest
+{
+	width: 500px;
+	height: 300px;
+	margin: 0px;
+	border-bottom: 1px solid #CDCDC5;
+	overflow: hidden;
+	position: relative;
+}
+
+.NewsDest:first-of-type
+{
+	margin-bottom:30px;
+}
+
+.NewsDest .NewsCopete
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 490px;
+	padding:0px 5px;
+	background-color: rgba(200,200,200,0.8);
+	height: 70px;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	text-align: justify;
+}
+
+.NewsCopete .NTitle
+{
+	font: 400 18px/25px Trebuchet MS, Georgia, sans-serif;
+	margin: 3px 0px 0px;
+	color: #000;
+}
+
+.NewsCopete .categoria
+{
+	display: block;
+}
+
+.news_dest_img
+{
+	height: 300px;
+	width: 500px;
+}
+
+.NewsCopete .NTitle ~ .ExtractDest
+{
+	display: none;
+	color: #fff;
+	font-size: 12px;
+	line-height: 18px;
+	margin-top: 10px;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	text-align: justify;
+}
+
+.NewsDest:hover>.news_dest_img
+{
+	border-color: rgba(136,0,0,0.85);
+}
+
+.NewsDest:hover .NewsCopete
+{
+	background-color: rgba(136,0,0,0.85);
+	height: 120px;
+	box-shadow:0px -2px 3px rgba(0,0,0,0.90);
+}
+
+.NewsDest:hover .NewsCopete .NTitle
+{
+	color: #fff;
+}
+
+.NewsDest:hover .NTitle ~ .ExtractDest
+{
+	display: block;
+}
+
+.NewsDest:hover .categoria a
+{
+	background-color: #000;
+}
+/*Fin Estilo Noticias Futured*/
+
+/*Inicio Estilo Noticias Headlines*/
+.CntNewsPrinc
+{
+	float: right;
+	width: 430px;
+	height: 630px;
+	border-left: 1px solid #CDCDC5;
+}
+
+.CntNewsPrincSmall
+{
+	width: 210px;
+	float: left;
+}
+
+.NewsPrinc
+{
+	width: 200px;
+	height: 200px;
+	margin:0px 5px 8px 10px;
+	padding-bottom: 5px;
+	overflow: hidden;
+	float: left;
+	background: transparent url('../images/sep_princ.png') repeat-x bottom center;
+	text-align: justify;
+}
+
+.NewsPrinc .NTitle
+{
+	border:none;
+	font-size: 14px;
+	line-height: 20px;
+	margin:2px 0px 0px;
+	color: #000;
+}
+
+.NewsPrinc .categoria
+{
+	height: 15px;
+	overflow: hidden;
+	display: block;
+	margin-bottom: 2px;
+}
+
+.NewsPrinc .categoria a
+{
+	float: left;
+	margin-left: 2px;
+}
+
+.news_princ_img
+{
+	height: 120px;
+	width: 200px;
+}
+
+.NewsPrinc .NTitle:hover
+{
+	color: #a20000;
+}
+
+.NewsHL2
+{
+	clear: left;
+}
+/*Fin Estilo Noticias Headlines*/
+
+/*Inicio Estilo Noticias NewsFlash*/
+.CntFlash
+{
+	width: 950px;
+	height: 615px;
+	margin-bottom:20px;
+}
+
+.CntFlash .NewsFls
+{
+	width: 204px;
+	height: 300px;
+	padding:0px 15px 5px;
+	float: left;
+	overflow: hidden;
+	border-right: 1px solid #bbb;
+	border-bottom: 1px solid #bbb;
+	text-align: justify;
+}
+
+.CntFlash .NewsFls:nth-child(4n)
+{
+	border-right: 0px none;
+}
+
+.CntFlash .NewsFls:nth-of-type(n+5)
+{
+	border-bottom: 1px none transparent;
+}
+
+.CntFlash .NotBtmBorder
+{
+	border-bottom: 0px none;
+}
+.news_flash_img
+{
+	display: block;
+	margin: 10px auto 5px;
+	width: 200px;
+	height: 170px;
+}
+
+.NewsFls .categoria
+{
+	height: 15px;
+	overflow: hidden;
+	display: block;
+	margin: 0px auto 5px;
+}
+
+.NewsFls .NTitle
+{
+	max-height: 100px;
+	font: 400 14px/20px Trebuchet MS, Georgia, sans-serif;
+	border:none;
+	overflow: hidden;
+}
+
+.NewsFls .NTitle:hover
+{
+	color: #a20000;
+}
+
+/*Fin Estilo Noticias Newsflash*/
+
+
+/*Inicio Estilo Noticias Gossip*/
+#CntGsp
+{
+	height: 410px;
+	margin-bottom: 20px;
+}
+
+#CntGsp #CntGspB
+{
+	width: 520px;
+	height: 420px;
+	overflow: hidden;
+	float: left;
+}
+
+#CntGspB #GossipBig
+{
+	width: 320px;
+	height: 410px;
+	overflow: hidden;
+	float: left;
+}
+
+#GossipBig .news_gspb_img
+{
+	width: 320px;
+	height: 240px;
+	margin:0px auto;
+	display: block;
+}
+
+#GossipBig .P2Copete
+{
+	width: 308px;
+	height: 168px;
+	overflow: hidden;
+	border:2px solid #a20000;
+	border-top:0px none;
+	border-radius:0px 0px 5px 5px;
+	padding:0px 4px;
+	background-color: rgba(255,255,255,0.7);
+	text-align: justify;
+}
+
+#GossipBig .P2Copete:hover
+{
+	border-color:#000;
+}
+
+
+#GossipBig .P2Copete .NTitle
+{
+	font:400 18px/25px Trebuchet MS;
+	max-height: 50px;
+	padding:0px;
+	overflow: hidden;
+}
+
+#GossipBig .P2Copete .NBody
+{
+	display: block;
+	margin:4px 0px;
+	font:400 12px/20px Trebuchet MS;
+	max-height: 110px;
+	overflow: hidden;
+	color: #000;
+}
+
+#CntGspB .GossipNews
+{
+	position: relative;
+	width: 195px;
+	height: 195px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	border-radius:0px 0px 5px 5px;
+	float: right;
+	text-align: justify;
+}
+
+.GossipNews .news_gsps_img
+{
+	width: 195px;
+	height: 195px;
+}
+
+.GossipNews .NTitle
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	width: 185px;
+	max-height: 63px;
+	padding:0px 5px;
+	background-color: rgba(255,255,255,0.8);
+	font:400 12px/20px Trebuchet MS;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+.GossipNews .NTitle:hover
+{
+	color: #a20000;
+}
+
+#Cartelera
+{
+	float: right;
+	height: 406px;
+	width: 236px;
+	overflow: hidden;
+	border-radius:5px;
+	box-shadow:inset 0px 0px 10px 2px rgb(51, 51, 51);
+	background-color: #fafafa;
+}
+
+#Cartelera.LoadingBar
+{
+	background: url('../images/loadingbar.gif') no-repeat center center #fafafa;
+	box-shadow:none;
+}
+
+#Cartelera h2
+{
+	font: 400 22px/35px Trebuchet MS;
+	margin:0px 0px 5px;
+	text-align: center;
+	color: #ddd;
+	background-color: #3B5998;
+}
+
+#Cartelera .InfoShows
+{
+	clear: both;
+	height: 340px;
+	width: 226px;
+	position: relative;;
+	left: 5px;
+	overflow: hidden;
+	display: none;
+}
+
+#Cartelera .activeShow
+{
+	display: block;
+}
+
+.InfoShows img
+{
+	height: 240px;
+	display: block;
+	margin: 0px auto 2px;
+}
+
+.InfoShows h4
+{
+	font: 600 18px/30px Trebuchet MS;
+	max-height: 90px;
+	margin:5px 0px 2px;
+	text-align: center;
+	color: #222;
+	padding:0px 5px ;
+}
+
+#Cartelera nav
+{
+	height: 26px;
+}
+
+#Cartelera nav p
+{
+	background-color: #333;
+	color: #fff;
+	width: 15.2px;
+	float: left;
+	text-align: center;
+	font: 400 12px/26px Trebuchet MS;
+	padding:0px 4.2px;
+}
+
+#Cartelera nav p:hover, #Cartelera nav p.activeEstreno
+{
+	background-color: rgba(171,1,0,0.8);
+	cursor: pointer;	
+}
+/*Fin Estilo Noticias Gossips*/
+
+/*Inicio Estilo Noticias TravelNews*/
+#CntTrv
+{
+	height: 300px;
+	margin-bottom: 20px;
+	overflow: hidden;
+}
+
+#CntTrv .TrvNews
+{
+	width: 205px;
+	height: 300px;
+	float: left;
+	overflow: hidden;
+	border-right: 1px solid #aaa;
+	padding:0px 15px;
+	text-align: justify;
+}
+
+#CntTrv .TrvNews#env-noticia
+{
+	padding:0px;
+	width: 235px;
+}
+
+#CntTrv .TrvNews:first-of-type
+{
+	padding-left: 0px;
+}
+
+.TrvNews .trv_img
+{
+	width: 200px;
+	height: 170px;
+	display: block;
+	margin:5px auto;
+}
+
+.TrvNews .NTitle
+{
+	max-height: 60px;
+	font: 400 14px/20px Trebuchet MS, Georgia, sans-serif;
+	border:none;
+	overflow: hidden;
+}
+
+.NTitle:hover
+{
+	color: #a40000;
+}
+
+.TrvNews .categoria
+{
+	height: 15px;
+	overflow: hidden;
+	display: block;
+	margin:0px auto 5px;
+}
+
+.TrvNews #RadioLaRed
+{
+	width: 230px;
+	height: 250px;
+	margin:0px auto;
+	display: block;
+}
+/*Fin Estilo Noticias TravelNews*/
+
+/*Inicio Estilo Noticias Extra*/
+#Extra1
+{
+	height: 625px;
+	position: relative;
+	margin:10px auto;
+}
+
+.CntExtraNews
+{
+	width: 707px;
+	height: 615px;
+	float: left;
+}
+
+.CntExtraNews .NewsExtra
+{
+	width: 205px;
+	height: 300px;
+	float: left;
+	overflow: hidden;
+	border-right: 1px solid #aaa;
+	padding:0px 15px;
+	text-align: justify;
+}
+
+.CntExtraNews .NewsExtra:nth-child(3n)
+{
+	border-right: none;
+}
+
+.CntExtraNews .NewsExtra:nth-of-type(n+4)
+{
+	border-top: 1px solid #aaa;
+}
+
+.NewsExtra .NTitle
+{
+	width: 200px;
+	max-height: 80px;
+	font: 400 14px/20px Trebuchet MS, Georgia, sans-serif;
+	border:none;
+	overflow: hidden;
+}
+
+.NewsExtra .categoria
+{
+	height: 15px;
+	overflow: hidden;
+	display: block;
+	margin:0px auto 5px;
+}
+
+.NewsExtra .news_extra_img
+{
+	display: block;
+	margin:10px auto 5px;
+	width: 200px;
+	height: 170px;
+}
+
+#TablaDePosiciones
+{
+	width: 240px;
+	height: 615px;
+}
+/*Fin Estilo Noticias Extra*/
+
+/*Inicio Paginacion en Subpaginas*/
+.pagination
+{
+	padding:20px 5px !important;
+	clear: both;
+	text-align: center;
+}
+
+.pagination .page-numbers
+{
+	padding:5px 10px;
+	background-color:#eee;
+	border:1px outset #000;
+	box-shadow: inset 0px 0px 2px #000;
+	border-radius:5px;
+	margin:0px 1px;
+}
+
+.pagination .page-numbers:hover
+{
+	background-color: #000;
+	border-color: #aaa;
+	color: #fff;
+}
+
+.pagination .current, .pagination .current:hover
+{
+	background-color: #a40000;
+	color: #fff;
+	border:1px outset #000;
+}
+/*Fin Paginacion en Subpaginas*/
+
+/*Inicio Sidebar Style*/
+#LastPostList
+{
+	clear: both;
+	display: block;
+	background-color:#fff;
+	color: #fff;
+	border-radius:5px;
+	margin: 0px auto 10px;
+	overflow: hidden;
+}
+
+#LastPostList #LPTitle
+{
+	font: 800 28px/40px Trebuchet MS;
+	text-align: center;
+	color: #fff;
+	border-bottom: 1px solid #aaa;
+	background-color: #3B5998;
+	padding: 0px;
+}
+
+#LastPostList .LPLine
+{
+	padding:5px 7px;
+	display: block;
+	border-bottom: 2px solid #eee;
+	
+}
+
+#LastPostList .LPLine .LPLink
+{
+	color: #333;
+	font: 400 12px/20px Trebuchet MS;	
+	text-align: justify;
+	padding: 0px 2px 5px;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+#LastPostList .LPLine .LPLink:hover
+{
+	color: #a40000;
+}
+
+
+.Advert
+{
+	clear: both;
+}
+/*Fin Sidebar Style*/
+
+/*Inicio Estilo Informacion Util*/
+#Cnt-InfoUtil
+{
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+#Cnt-InfoUtil .BannerLeft
+{
+	clear: none;
+	float: left;
+	margin: 0px;
+}
+
+#Cnt-InfoUtil .BannerRight
+{
+	clear: none;
+	float: right;
+	margin: 0px;
+}
+
+#Cnt-InfoUtil #Infoutil
+{
+	width: 500px;
+	margin:0px 25px;
+	height: 200px;
+	float: left;
+}
+
+#Infoutil figure
+{
+	float: left;
+	width: 250px;
+	height: 100px;
+}
+
+#Infoutil figure#farmacias
+{
+	background: #fff url('../images/farmturn.png') no-repeat center center;
+}
+/*Fin Estilo Informacion Util*/

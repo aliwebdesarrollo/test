@@ -1,0 +1,427 @@
+@font-face {
+    font-family: 'ostrich_sansmedium';
+    src: url('../fonts/ostrich-regular-webfont.eot');
+    src: url('../fonts/ostrich-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/ostrich-regular-webfont.woff') format('woff'),
+         url('../fonts/ostrich-regular-webfont.ttf') format('truetype'),
+         url('../fonts/ostrich-regular-webfont.svg#ostrich_sansmedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'byngve_lt_stdregular';
+    src: url('../fonts/byngve-lt-std_8890-webfont.eot');
+    src: url('../fonts/byngve-lt-std_8890-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/byngve-lt-std_8890-webfont.woff') format('woff'),
+         url('../fonts/byngve-lt-std_8890-webfont.ttf') format('truetype'),
+         url('../fonts/byngve-lt-std_8890-webfont.svg#byngve_lt_stdregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.font_ostrich
+{
+	/*font-family: 'ostrich_sansmedium';*/
+    /*font-family: 'hero_lightlight';*/
+    font-family: 'code_lightregular';
+    font-weight: 600;
+	-webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+h1.font_ostrich{ font-size: (@font-size-base * 2.75); font-size: 4rem; letter-spacing: 1px;}
+h2.font_ostrich{ font-size: (@font-size-base * 2.25); font-size: 3rem; letter-spacing: 1px;}
+h3.font_ostrich{ font-size: (@font-size-base * 1.75); font-size: 2.5rem; letter-spacing: 1px;}
+h4.font_ostrich{ font-size: (@font-size-base * 1.25); font-size: 2rem; letter-spacing: 1px;}
+h5.font_ostrich{ font-size: @font-size-base; font-size: 1.6rem; letter-spacing: 1px;}
+h6.font_ostrich{ font-size: (@font-size-base * 0.85); font-size: 1.2rem; letter-spacing: 1px;}
+
+.font_huge_ostrich{ 
+	font-size: (@font-size-base * 6.5); 
+	font-size: 8rem;
+	font-family: 'ostrich_sansmedium';
+	letter-spacing: 1px;
+	}
+
+.font_big_ostrich{ 
+	font-size: (@font-size-base * 2.75); 
+	font-size: 4.5rem;
+	font-family: 'ostrich_sansmedium';
+	letter-spacing: 1px;
+	}
+	
+.font_reg_ostrich{ 
+	font-size: (@font-size-base * 2.25); 
+	font-size: 3rem; 
+	font-family: 'ostrich_sansmedium';
+	letter-spacing: 1px;
+	}
+	
+.font_small_ostrich{ 
+	font-size: (@font-size-base * 1.75); 
+	font-size: 2rem; 
+	font-family: 'ostrich_sansmedium';
+	letter-spacing: 1px;
+	}
+
+.font_tiny_ostrich{ 
+	font-size: (@font-size-base * 1.75); 
+	font-size: 1.5rem; 
+	font-family: 'ostrich_sansmedium';
+	letter-spacing: 1px;
+	}
+
+.font_byngve
+{
+	font-family: 'byngve_lt_stdregular';
+	font-weight: 400;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}
+
+
+h1.font_byngve{ font-size: (@font-size-base * 2.75); font-size: 4rem; }
+h2.font_byngve{ font-size: (@font-size-base * 2.25); font-size: 3rem; }
+h3.font_byngve{ font-size: (@font-size-base * 1.75); font-size: 2.1rem; }
+h4.font_byngve{ font-size: (@font-size-base * 1.25); font-size: 1.8rem; }
+h5.font_byngve{ font-size: @font-size-base; font-size: 1.5rem; }
+h6.font_byngve{ font-size: (@font-size-base * 0.85); font-size: 1.2rem; }
+
+
+.font_huge_byngve{ 
+	font-size: (@font-size-base * 2.75); 
+	font-size: 4rem;
+	font-family: 'byngve_lt_stdregular';
+	}
+
+.font_big_byngve{ 
+	font-size: (@font-size-base * 2.75); 
+	font-size: 2.3rem;
+	font-family: 'byngve_lt_stdregular';
+	}
+	
+.font_reg_byngve{ 
+	font-size: (@font-size-base * 2.25); 
+	font-size: 1.5rem; 
+	font-family: 'byngve_lt_stdregular';
+	}
+	
+.font_small_byngve{ 
+	font-size: (@font-size-base * 2); 
+	font-size: 1.2rem; 
+	font-family: 'byngve_lt_stdregular';
+	}
+
+.font_tiny_byngve{ 
+	font-size: (@font-size-base * 1.75); 
+	font-size: 1rem; 
+	font-family: 'byngve_lt_stdregular';
+	}
+
+	
+.font_404
+{
+	color: #FF8080;
+	text-shadow:0px 2px 1px #333; 	
+}
+
+
+body
+{
+	background: url(../images/light/bg.jpg) repeat #FFF;
+	padding-top: 60px;   
+}
+
+h1,h2,h3,h4,h5,h6,p,a
+{
+	word-break:keep-all ;
+	word-wrap: break-word;
+	text-align: justify;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+a, a:focus, a:hover, a:active
+{
+	color: rgba(252,20,102,1);
+	text-decoration: none;
+}
+
+hr{
+	border-color: rgb(200,200,200);
+}
+
+hr.single_separator
+{
+	margin:5px auto 2px;
+	width: 100%;
+	border-color: rgb(200,200,200);
+	clear: both;
+}
+
+.hr {
+  background-color: #222;
+  height: 1px;
+  margin: 18px auto;
+  width: 33.3%;
+}
+
+.no-hyphens
+{
+	-moz-hyphens: none;
+	-ms-hyphens:none;
+	-o-hyphens:none;
+	-webkit-hyphens:none;
+	hyphens: none;
+
+}
+
+#post-title
+{
+	margin-top: 0px;
+}
+
+.label-tags
+{
+	background-color: rgba(255,64,128,1);
+}
+
+.label-tags-single
+{
+	font-size: 60%;
+}
+
+.video-thumbnail
+{
+	width: 100%;
+	min-height: 250px;
+}
+
+.img-full-width
+{
+	width: 100%;
+}
+
+.thumbnail
+{
+	padding: 0px;
+}
+
+.prev-thumb
+{
+	padding:4px;
+}
+
+footer, #footer
+{
+	margin-top: 20px;
+}
+
+.panel-footer
+{
+	background-color: #FF8080;
+}
+
+.thumb-hold
+{
+	opacity: 0.5;
+}
+
+.thumb-hold:active, .thumb-hold:hover
+{
+	opacity: 1;
+}
+
+.form-custom
+{
+	padding:10px;
+}
+
+.panel-social a
+{
+	margin:0px 10px;
+}
+
+.panel-social a span
+{
+	font-size: 36px;
+	color: #FF8080;
+	padding:0px 5px;
+	opacity: 0.6;
+}
+
+.panel-social a span:hover
+{
+	opacity: 1;
+}
+
+.menu-item-home
+{
+	font-family: "ostrich_sansmedium";
+	font-size: 1.9rem;
+}
+
+
+.adverts-art 
+{
+	border-radius:20px;
+}
+
+.Tags-Style 
+{
+	padding: 2px 5px;
+	display: block;
+}
+
+.Tags-Style label
+{
+	display: inline-block;
+	transform: skew(-15deg);
+	-webkit-transform: skew(-15deg);
+	-moz-transform: skew(-15deg);
+	-o-transform: skew(-15deg);
+	-ms-transform: skew(-15deg);
+	background-color: #ff6060;
+	padding: 3px 5px 1px;
+	margin:0px 0px 0px 5px;
+	opacity: 0.8;
+}
+
+.Tags-Style label:nth-child(2n)
+{	
+	background-color: #fff;
+}
+
+.Tags-Style label:hover
+{
+	opacity: 1;
+}
+
+.Tags-Style label p
+{
+	transform: skew(15deg);
+	-webkit-transform: skew(15deg);
+	-moz-transform: skew(15deg);
+	-o-transform: skew(15deg);
+	-ms-transform: skew(15deg);
+	margin: 0px;
+	font-family: 'byngve_lt_stdregular';
+}
+
+.Tags-Style label p a
+{
+	color: #fff;
+	padding: 0;
+}
+
+.Tags-Style label:nth-child(2n) p a
+{
+	color: #ff6060;
+} 
+
+.category-now, .tag-now
+{
+	color: #3E667B;
+}
+
+.panel-history-tree
+{
+	border-radius:0px;
+	background-color: #fff;
+	padding:1px 2px;
+	margin-bottom: 10px;
+}
+
+.tags-moreused
+{
+	display: inline-block;
+}
+
+.tags-moreused a
+{
+	color: rgb(168, 20, 170);
+	display: block;
+	margin-right: 15px;
+	-moz-hyphens: none;
+	-ms-hyphens:none;
+	-o-hyphens:none;
+	-webkit-hyphens:none;
+	hyphens: none;
+}
+
+.tags-moreused a:hover
+{
+	color: rgb(252, 20, 102);
+}
+
+.post-most-view
+{
+	color: #111;
+}
+
+.youtube-responsive
+{
+	width: 100%;
+	min-height: 300px;
+	margin: 20px 0px;
+}
+
+.fb-comments { width: 100%; /* or width: 50%; */ }
+
+.fb-comments span{ width: 100% !important; /* or width: 50%; */ }
+
+.fb-comments iframe{ width: 100% !important; /* or width: 50%; */ }
+
+/* Large desktop */
+@media (min-width: 1200px) {
+	.fb-comments { width: 100%; /* or width: 50%; */ }
+	.fb-comments span{ width: 100% !important; /* or width: 50%; */ }
+	.fb-comments iframe{ width: 100% !important; /* or width: 50%; */ }
+   .youtube-responsive{
+		width: 100% !important;
+		min-height: 400px !important;
+		margin: 20px 0px !important;
+	} 
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+	.fb-comments { width: 100%; /* or width: 50%; */ }
+	.fb-comments span{ width: 100% !important; /* or width: 50%; */ }
+	.fb-comments iframe{ width: 100% !important; /* or width: 50%; */ }
+	.youtube-responsive{
+		width: 100% !important;
+		min-height: 350px !important;
+		margin: 20px 0px !important;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    .fb-comments { width: 100%; /* or width: 50%; */ }
+    .fb-comments span{ width: 100% !important; /* or width: 50%; */ }
+    .fb-comments iframe{ width: 100% !important; /* or width: 50%; */ }
+	.youtube-responsive{
+		width: 100% !important;
+		min-height: 300px !important;
+		margin: 15px 0px !important;
+	}
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    .fb-comments { width: 100%; /* or width: 50%; */ }
+    .fb-comments span{ width: 100% !important; /* or width: 50%; */ }
+    .fb-comments iframe{ width: 100% !important; /* or width: 50%; */ }
+	.youtube-responsive{
+		width: 100% !important;
+		min-height: 200px !important;
+		margin: 10px 0px !important;
+	}
+}

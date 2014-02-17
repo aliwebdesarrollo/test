@@ -1,0 +1,79 @@
+<div id="CntCities">
+			<?php
+			$feed_url = "http://api.tiempo.com/index.php?api_lang=ar&pais=67&affiliate_id=mt25w1ffebr7";
+			$curl = curl_init();
+			curl_setopt($curl, CURLOPT_URL,"$feed_url");
+			curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+			curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 0);
+			$xmlClima = curl_exec($curl);
+			if(curl_errno($curl)==0) 
+			{
+				if(isset($xml->location->data[0]->name)) 
+				{
+					curl_close($curl);
+					$xml = simplexml_load_string($xmlClima);
+					?>
+				<h3 class="CitiesTitle">Seleccione la Provincia</h3>
+				<select id="ListClimaP" class="ListaClima" onchange="LoadCities(this.value);">
+					<?php
+					foreach ($xml->location->data as $line) 
+					{
+			      	?>
+	      		<option value="<?=$line->name->attributes()->id?>" class="ClimaProv"><?=$line->name?></option>
+			      	<?php
+		   	   }
+		    		?>
+				</select>
+				<h3 class="CitiesTitle">Seleccione la Ciudad</h3>
+					<?php
+					$feed_loc = "http://api.tiempo.com/index.php?api_lang=ar&provincia=".$xml->location->data[0]->name->attributes()->id."&affiliate_id=mt25w1ffebr7";	
+					$curlL = curl_init();
+					var_dump(curl_errno($curlL));
+					curl_setopt($curlL, CURLOPT_URL,"$feed_loc");
+					curl_setopt($curlL, CURLOPT_RETURNTRANSFER, 1);
+					curl_setopt($curlL, CURLOPT_CONNECTTIMEOUT, 0);
+					$xmlClimaLoc = curl_exec($curlL);
+					if(curl_errno($curlL)==0)
+					{
+						curl_close($curlL);
+						$xmlL = simplexml_load_string($xmlClimaLoc);
+						?>
+				<select id="ListClimaL" class="ListaClima">
+						<?php
+						foreach ($xmlL->location->data as $lineL) 
+						{
+		   	   		?>
+	      		<option value="<?=$lineL->name->attributes()->id?>" class="ClimaProv"><?=$lineL->name?></option>
+		   	   		<?php
+			   	   }
+			    		?>
+				</select>
+				<button onclick="ChangeCity();">Cambiar Ciudad</button>
+				<button onclick=" return CloseCities();">Cerrar</button>
+						<?php
+					}else 
+					{
+						?>
+				<h2>Lamentablemente el servicio se encuentra momentaneamente deshabilitado.</h2>
+				<h3>Disculpe las molestias.</h3>
+				<button onclick=" return CloseCities();">Cerrar</button>
+						<?php
+					}
+				}else 
+				{
+					?>
+				<h2>Lamentablemente el servicio se encuentra momentaneamente deshabilitado.</h2>
+				<h3>Disculpe las molestias.</h3>
+				<button onclick=" return CloseCities();">Cerrar</button>
+					<?php
+				}
+			}else 
+			{
+				?>
+				<h2>Lamentablemente el servicio se encuentra momentaneamente deshabilitado.</h2>
+				<h3>Disculpe las molestias.</h3>
+				<button onclick=" return CloseCities();">Cerrar</button>
+				<?php
+			}
+			?>
+			</div>

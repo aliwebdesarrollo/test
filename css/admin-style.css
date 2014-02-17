@@ -1,0 +1,93 @@
+.basic
+{
+  		width:90%;
+  		margin:5px 0 0 0;
+  		font-family:Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+}
+.basic td
+{
+  		font-family:Trebuchet MS, Arial, Helvetica, sans-serif;
+}
+.basic input, .basic select, .basic textarea
+{
+	font-size:12px;
+	padding:5px;
+	color:#000;
+	font-weight:normal;
+}
+.basic select
+{
+	height:27px;
+	padding:3px;
+}
+.basic input:focus, .basic textarea:focus
+{
+	color:#f00;
+}
+.basic div.panel
+{
+	background:#888;
+	color: #fff;
+	font-weight:bold;
+	font-size:11px;
+	padding:10px;
+	border:1px solid #CCC;
+	border-top:0;
+	-webkit-border-bottom-right-radius:3px;
+	-webkit-border-bottom-left-radius:3px;
+	-moz-border-radius-bottomright:3px;
+	-moz-border-radius-bottomleft:3px;
+	border-bottom-right-radius:3px;
+	border-bottom-left-radius:3px;
+}
+.basic div.panel small
+{
+	color:#000;
+	font-size:11px;
+	font-weight:normal;
+}
+.basic a.block
+{
+	cursor:default;
+	display:block;
+	padding:5px 10px 7px 10px;
+	margin:0;
+	text-decoration:none;
+	font-size:13px;
+	color:#fff;
+	background:#2A94C4;
+	border:1px solid #CCC;
+	-webkit-border-top-left-radius:3px;
+	-webkit-border-top-right-radius:3px;
+	-moz-border-radius-topleft:3px;
+	-moz-border-radius-topright:
+	3px;border-top-left-radius:3px;
+	border-top-right-radius:3px;
+	margin:20px 0 0 0;
+	font-family:Trebuchet MS, Arial, Helvetica, sans-serif;
+	font-weight:bold;
+}
+.basic a.block.selected
+{
+	color:black;
+	background:#96ebff;
+}
+span.desc_notes
+{
+	display:block;
+	font-weight:normal;
+	color:#fff;
+	font-size:12px;
+	font-style:italic;
+}
+span.desc_notes strong
+{
+	color:#fff;
+}
+
+#meta-box-gallery.postbox
+{
+	background: rgba(0,0,0,0.2);
+	color: #222;
+	font-family: Trebuchet MS;
+}

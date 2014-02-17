@@ -1,0 +1,103 @@
+/*------------------------------------------------------------------------
+# Global News WordPress Theme v1.0 - August 2010
+# ------------------------------------------------------------------------
+# Copyright (C) 2008 instantShift. All Rights Reserved.
+# @license - Global News WordPress Theme is available under the terms of the GNU General Public License.
+# Author: http://www.rapidxhtml.com
+# Websites:  http://www.instantshift.com
+-------------------------------------------------------------------------*/
+
+/* Reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{
+    margin: 0;
+    padding: 0;
+}
+
+fieldset,img{
+    border: 0;
+}
+
+html{
+    height: 100%;
+    margin-bottom: 1px;
+}
+
+body{
+    position: relative;
+}
+
+input, textarea, select{
+    font-family: "Lucida Grande",Tahoma,Verdana,sans-serif;
+    line-height: 150%;
+    color: #444;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: Georgia,serif;
+}
+
+ul, ol {
+    list-style: none;
+    padding: 10px 0;
+}
+
+small {
+    font-size: 11px;
+}
+
+code {
+    background: #FFFFC1;
+}
+
+blockquote p {
+    padding: 5px 0;
+}
+
+a:link, a:visited{
+    color: #A20000;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #000;
+    text-decoration: underline;
+}
+
+a img {
+    border: none;
+}
+
+/* Align */
+.aligncenter {
+    margin: 10px auto 20px auto;
+    display: block;
+}
+
+.alignleft {
+    margin: 10px 20px 8px 0;
+    float: left;
+}
+
+.alignleft-archive {
+    margin: 3px 15px 4px 0;
+    float: left;
+}
+
+.alignright {
+    margin: 10px 0px 8px 20px;
+    float: right;
+}
+
+img.alignleft{
+    float: left;
+}
+
+img.alignright{
+    float: right;
+}
+
+img.centered{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,0 +1,198 @@
+/*------------------------------------------------------------------------
+# Aliweb News WordPress Theme - Julio 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# Copyright (C) 2013 Aliweb Desarrollo. Todos los derechos reservados.
+# @license - Aliweb News WordPress Theme is available under the terms of the GNU General Public License.
+# @license - Aliweb News WordPress Theme esta disponible bajo los terminos de las licencias GNU General Public License.
+# Author: http://www.aliweb.com.ar
+# Autor: http://www.aliweb.com.ar
+# Websites:  http://www.aliweb.com.ar
+-------------------------------------------------------------------------*/
+
+/*Estilos para las noticias del Diario*/
+
+#Cnt-Single
+{
+	width: 690px;
+	float: left;
+	vertical-align: top;
+	min-height: 600px;
+	/*border-right: 1px solid #aaa;*/
+}
+
+#Cnt-Single #Single-info
+{
+	margin-bottom: 10px; 
+	padding: 0px 5px; 
+	font: 600 14px/28px Trebuchet MS; 
+	background-color: rgba(255, 255, 255,0.9); 
+	color: rgb(0, 0, 0);
+}
+#Single-info a
+{
+	color: #fff;
+	font: 400 11px/28px Trebuchet MS;
+	color: #A40000;
+}
+
+#Single-info a::after
+{
+	content: " | ";
+}
+
+#Single-info a:last-of-type::after
+{
+	content: "";
+}
+
+
+#Single-info #Single-pub
+{
+	float: right;
+	
+}
+
+#Single-post #Single-tit
+{
+	font: 400 28px/36px Trebuchet MS;
+	margin-bottom: 10px;
+	padding:0px 20px;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+	text-align: justify;
+}
+
+#Single-post .post-image
+{
+	position: relative;
+	min-height: 300px;
+}
+
+#Single-post .post-image #galery-icon
+{
+	display: block;
+	width: 50px;
+	height: 55px;
+	top: 0px;
+	left: 25px;
+	position: absolute;
+	background: url('../images/galery-icon.png') no-repeat top center transparent; 
+}
+
+#Single-post .pic-list
+{
+	display: none;
+}
+
+#Single-post .pic-list:first-child
+{
+	display: block;
+	width: 650px;
+	height: 300px;
+	margin: 0px auto 20px;
+}
+
+#Single-post .pic-list .single
+{
+	border-radius:10px;
+	width: 650px;
+	height: 300px;
+}
+
+#Single-post #post-content
+{
+	padding:10px 20px;
+	margin-bottom: 50px;
+	font: 400 12px/24px Trebuchet MS;
+	text-align: justify;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+#post-content #post-autor
+{
+	font: 800 12px/24px Trebuchet MS;
+	display: block;
+}
+
+#Single-post .single-img
+{
+	max-width: 650px;
+	margin: 10px auto;
+	display: block;
+}
+
+#Single-post #post-content ul, #Single-post #post-content ol
+{
+	display: block;
+	list-style: disc inside none;
+	padding: 0px;
+	margin: 10px 0px;
+}
+
+#Single-post #post-content ul li
+{
+	
+}
+
+#Single-post .fb-comments
+{
+	display: block;
+	margin:10px auto;
+	width: 650px;
+}
+
+
+div.youtube
+{
+	width: 650px;
+	height: 300px;
+	display: block;
+	margin:10px auto;
+}
+
+div.youtube>object
+{
+	width: 650px;
+	height: 300px;
+	display: block;
+	margin:10px auto;
+}
+
+#Cnt-Single-comments
+{
+	clear: both;	
+}
+
+#Cnt-Single-comments .fb-comments
+{
+	float: left;
+}
+
+#Cnt-Single-comments #comment-terms
+{
+	float: right;
+	width: 220px;
+	vertical-align: top;
+	background-color: #fff;
+	padding:5px 20px 5px 10px;
+}
+
+#Cnt-Single-comments #comment-terms p
+{
+	font: 600 10px/14px Trebuchet MS;
+	text-align: justify;
+	color:#888;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}

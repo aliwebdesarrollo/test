@@ -1,0 +1,144 @@
+textarea
+{
+	resize:none;
+}
+
+#Main-Ads
+{
+	margin: 20px 0px 10px; 
+	min-width: 750px; 
+	padding: 10px;
+}
+
+#Main-Ads .Cnt-Ads
+{
+	margin:0px 10px 20px 0px;
+	padding: 2px 5px 5px; 
+	background-color: rgb(230, 230, 230);
+	width: 350px;
+	float: left;
+	border-radius:5px;
+	box-shadow:2px 2px 2px 0px #000;
+	position: relative;
+}
+
+#Main-Ads .Cnt-Ads:hover
+{
+	background-color: rgb(200, 200, 200);
+}
+
+.Cnt-Ads h3
+{
+	margin:0px auto 10px;
+  	font: 600 16px/24px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+}
+
+.Cnt-Ads label
+{
+	display: block;
+	cursor: default;
+	margin:2px 0px 10px;
+}
+
+.Cnt-Ads label span
+{
+	width: 110px;
+	display: inline-block;
+	font: 800 12px/18px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	color: #3B5998;
+	margin:0px;
+	vertical-align: top;
+}
+
+.Cnt-Ads label input
+{
+	margin:0px;
+	padding:5px;
+	width: 235px;
+	font: 400 12px/20px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+}
+
+.Cnt-Ads label select
+{
+	margin:0px;
+	width: 235px;
+	font: 400 12px/20px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+	border:0px none;
+	margin-left: -4px;
+}
+
+
+.Cnt-Ads label select option
+{
+	padding: 2px 5px;
+	font: 400 12px/20px Trebuchet MS, Georgia, "Times New Roman", Times, serif;
+}
+
+.Cnt-Ads label textarea
+{
+	width: 235px;
+	height: 100px;
+}
+
+.Cnt-Ads .cnt-buttons 
+{
+	padding:10px 0px;
+	text-align: center;
+}
+
+.Cnt-Ads .cnt-buttons .button-update
+{
+	cursor: pointer;
+	/*margin: 10px 5px 0px;*/
+	padding:5px 10px 5px;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 0 1px 1px rgba(0,0,0,.3);
+	-webkit-border-radius: .5em; 
+	-moz-border-radius: .5em;
+	border-radius: .5em;
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	box-shadow: 0 1px 2px rgba(0,0,0,.2);
+	color: #fff;
+}
+
+.button-Skyblue
+{
+	border: solid 1px #107cda;
+	background: #f78d1d;
+	background: -webkit-gradient(linear, left top, left bottom, from(#1aa5fa), to(#207af4));
+	background: -moz-linear-gradient(top,  #1aa5fa,  #207af4);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#1aa5fa', endColorstr='#207af4');
+	color: #fff;
+}
+
+.button-Skyblue:hover
+{
+	text-decoration: none;
+	background: #777;
+	background: -webkit-gradient(linear, left top, left bottom, from(#118ea8), to(#156080));
+	background: -moz-linear-gradient(top,  #118ea8,  #156080);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#118ea8', endColorstr='#156080');
+	color: #fff;
+}
+
+.button-Skyblue:active
+{
+	position: relative;
+	top: 1px;
+	color: #ddd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#207af4), to(#1aa5fa));
+	background: -moz-linear-gradient(top,  #207af4,  #1aa5fa);
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#207af4', endColorstr='#1aa5fa');
+}
+
+.Cnt-Ads .WaitingForm
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background: url('../images/ads/loading-small.gif') no-repeat center center rgba(255,255,255,1);
+}

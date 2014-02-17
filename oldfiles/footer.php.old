@@ -1,0 +1,52 @@
+<?php
+/*------------------------------------------------------------------------
+# Global News WordPress Theme v1.1 - August 2012
+# ------------------------------------------------------------------------
+# Copyright (C) 2008 instantShift. All Rights Reserved.
+# @license - Global News WordPress Theme is available under the terms of the GNU General Public License.
+# Author: http://www.rapidxhtml.com
+# Websites:  http://www.instantshift.com
+-------------------------------------------------------------------------*/
+?>
+</div>
+<footer>
+	<div id="CntFoo" class="SiteCnt">
+   <!-- Footer menu -->
+	<div class="Foo_Cols">
+		<h3 id="FootSection">SECCIONES</h3>
+		<?php wp_nav_menu( array( 'container'=> 'nav', 'container_id' => 'footermenu', 'depth' => 1, 'menu_id'=>'anfoot', 'menu_class' => 'ft-menu', 'theme_location' => 'footmenu') ); ?>    
+	</div>
+	<!-- /Footer Menu -->
+	<div class="Foo_Cols" id="FooLogo">
+		<a href="<?php echo get_option('home'); ?>/" title="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>"><img class="logo" src="<?php bloginfo('stylesheet_directory'); ?>/images/logo.png" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?> - <?php bloginfo('description'); ?>"></a>
+		<div id="FooSuplem">
+			<h1>SUPLEMENTOS</h1>
+			<a href="<?php echo bloginfo('url')?>/category/tecnologia" class="FooSuplemento" id="FooTec">Tecnolog&iacute;a</a>-
+			<a href="<?php echo bloginfo('url')?>/category/locales" class="FooSuplemento" id="Foo5ta">5ta Secci&oacute;n</a>-
+			<a href="<?php echo bloginfo('url')?>/category/cultura" class="FooSuplemento" id="FooCul">Cultura</a>-
+			<a href="<?php echo bloginfo('url')?>/category/deportes" class="FooSuplemento" id="FooDep">Deportes</a>
+		</div>
+	</div>
+	<!-- Footer Social -->
+	<div class="Foo_Cols" id="FooSocial">
+		<h3>SEGUINOS EN</h3>
+		<a href="https://www.facebook.com/DiarioEsNoticia" id="FooFacebook" class="SocialLinks" target="_blank">DiarioEsNoticia</a>
+		<a href="https://www.twitter.com/DiarioEsNoticia" id="FooTwitter" class="SocialLinks" target="_blank">@DiarioEsNoticia</a>
+		<a href="http://www.youtube.com/user/DiarioEsNoticiaTV" id="FooYoutube" class="SocialLinks" target="_blank">DiarioEsNoticiaTV</a>
+		<a href="<?php echo bloginfo('url')?>/contactenos" id="FooMail" class="SocialLinks"  target="_blank">Contactanos</a>
+    </div>   
+	<!-- /Footer Social -->    
+    <!-- copyright -->
+    <div class="copyright">
+      2013 &reg; <a href="<?php echo get_option('home'); ?>/"><u><?php bloginfo('name'); ?></u></a>. Todos los derechos reservados. Templates de <a href="http://www.aliweb.com.ar/" target="_blank">Aliweb Desarrollo</a> &copy;. Desarrollado por <a href="http://www.aliweb.com.ar/" target="_blank">Aliweb Desarrollo</a>.
+    </div>
+    <!-- / copyright -->
+  </div>
+</footer>
+<!-- /Footer -->
+
+<?php wp_footer(); ?>
+
+<!--END BODY-->
+</body>
+</html>

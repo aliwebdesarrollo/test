@@ -1,0 +1,1268 @@
+<?php
+/*------------------------------------------------------------------------
+# Aliweb News V1.0 Julio 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# @licencia - Aliweb News Theme esta protegida bajo los terminos de las licencias GNU General Public License.
+# Autor: http://www.aliweb.com.ar - Juan Manuel Piñeiro
+-------------------------------------------------------------------------*/
+get_header();
+
+/*Inicio Variables de Configuracion*/
+$totAds=0;
+$MaxAds=3;
+$PostIDs=array();
+$TagPost=array(
+			'lastmoment'=>1,
+			'featured'=>2,
+			'headlines'=>6,
+			'newsflash1'=>8,
+			'gossip'=>3,
+			'travels'=>3,
+			'newsflash2'=>8,
+			'extra1'=>6,
+			'featured2'=>2,
+			'headlines2'=>3,
+			'newsflash3'=>8
+			);
+
+/*Fin Variables de Configuracion*/		
+
+global $wpdb;
+$qb1=$wpdb->get_results("SELECT a.ads_id AS id, b.anb_image AS img, b.anb_url AS link, s.anbs_height AS h, s.anbs_width AS w, a.ads_maxheight AS maxh, a.ads_maxwidth AS maxw FROM wp_an_ads_publicidad AS a LEFT JOIN wp_an_ads_banners AS b ON a.ads_anb_id=b.anb_id LEFT JOIN wp_an_ads_banners_size AS s ON b.anb_anbs_id=s.anbs_id WHERE a.ads_anp_id =1 ORDER BY a.ads_id",OBJECT_K);
+
+$rCb = $wpdb->num_rows;
+
+$qads=$wpdb->get_results("SELECT a.ana_id AS id, a.ana_code AS code, s.anas_height AS h, s.anas_width AS w FROM wp_an_ads_adsense AS a LEFT JOIN wp_an_ads_adsense_size AS s ON a.ana_anas_id=s.anas_id WHERE a.ana_anp_id =1 ORDER BY a.ana_id",OBJECT_K);
+
+$rCa = $wpdb->num_rows;
+$banner=1;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}
+
+
+query_posts('showposts=1&tag=lastmoment');
+if (have_posts()) : the_post();
+	$PostIDs[get_the_id()]="lastmoment";
+	?>
+	<section id="LastMoment" class="SiteCnt">
+	<?php the_post_thumbnail("lastmoment",$attr);?>
+		<h1>ULTIMO MOMENTO</h1>
+		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"><?php the_title(); ?> </a>
+	</section>
+	<?php
+endif;
+wp_reset_query();
+?>
+	<!--Seccion Noticias Principales-->
+	<section class="SiteCnt CntPrincipal">
+	<!--Noticias Principales-->
+		<div class="CntNewsDest">
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['featured']>$ps) 
+{
+	query_posts("showposts=1&tag=featured&offset=$np");
+   if (have_posts()) : the_post();
+   	$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{
+		   ?>
+   	   <article class="NewsDest">
+			<?php 
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_dest_img"
+				);
+				the_post_thumbnail("featured",$attr);
+			}else 
+			{
+			}
+			?> 
+      		<div class="NewsCopete">
+	      		<label class="categoria"><?php the_category(' '); ?></label>
+   				<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?></a>
+   				<p class="ExtractDest"><?php $excerpt = get_the_excerpt(); echo string_limit_words($excerpt,20); ?></p>
+      		</div>
+      	</article>
+			<?php
+			$PostIDs[$postid]='featured';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		</div>
+		<!--Fin Noticias Principales-->
+		<!--Inicio Noticias Destacadas-->
+		<div class="CntNewsPrinc">
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['headlines']>$ps) 
+{
+	query_posts("showposts=1&tag=headlines&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{
+			?>
+			<article class="NewsPrinc">			
+			<?php
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_princ_img"
+				);
+				(the_post_thumbnail("headlines",$attr));
+			}else 
+			{
+			}
+			?> 
+      		<label class="categoria"><?php the_category(' '); ?></label>
+      		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?></a>
+			</article>
+			<?php
+			$PostIDs[$postid]='headlines';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		</div>
+		<!--Fin Noticias Destacadas-->
+	</section>
+	<!--Fin Seccion Noticias Principales-->
+	
+	
+<?php
+$banner=2;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}elseif($totAds<$MaxAds) 
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense AdsenseFullW BannerClear">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>
+	
+	
+	<!--Seccion Primer Flash de Noticias-->
+	<section id="Flash1" class="SiteCnt CntFlash">
+		<!--Inicio Flash1 de Noticias-->
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['newsflash1']>$ps) 
+{
+	query_posts("showposts=1&tag=newsflash1&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{				
+			if($ps<4) 
+			{
+				?>
+			<article class="NewsFls">
+				<?php
+			}else 
+			{
+				?>
+			<article class="NewsFls NotBtmBorder">
+				<?php
+			}	 
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_flash_img"
+				);
+				the_post_thumbnail("flashnews",$attr);
+			}else 
+			{
+			}
+			?> 
+	      	<label class="categoria"><?php the_category(' '); ?></label>
+	      	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?></a>
+			</article>
+			<?php
+			$PostIDs[$postid]='newsflash1';
+			$ps++; 
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		<!--Fin Flash1 de Noticias-->
+	</section>
+	<!--Fin Seccion Primer Flash de Noticias-->
+
+<!--Informacion Util-->
+<section id="Cnt-InfoUtil" class="SiteCnt">
+	<?php
+$banner=3;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerLeft">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerLeft">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}elseif($totAds<$MaxAds) 
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa)) 
+	{
+		?>
+	<div class="AdSense BannerLeft">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>
+	
+	
+	<div id="Infoutil">
+		<figure id="farmacias"></figure>
+		<figure></figure>
+		<figure></figure>
+		<figure></figure>
+	</div>
+
+
+<?php
+$banner=4;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerRight">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerRight">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}else 
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense BannerRight">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+	}
+	unset($qads[$ads]);
+}
+
+?>
+</section>
+	<!--Fin Informacion Util-->	
+	
+
+	<!--Seccion Noticias Farandula-->
+	<section id="CntGsp" class="SiteCnt">
+		<!--Noticias Farandula-->
+		<div id="CntGspB">
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['gossip']>$ps) 
+{
+	query_posts("showposts=1&tag=gossip&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{		
+   		if($ps==0) 
+			{
+				?>
+			<article id="GossipBig">
+				<?php
+				if(has_post_thumbnail()) 
+				{
+					$attr = array(
+					'class'	=> "news_gspb_img"
+					);
+					(the_post_thumbnail("gossipbig",$attr));
+				}else 
+				{
+				}
+				?>	 
+				<div href="<?php the_permalink() ?>" class="P2Copete">
+					<a href="<?php the_permalink() ?>" class="NTitle"><?php the_title(); ?></a>
+					<span class="NBody"><?php $excerpt = get_the_excerpt(); echo string_limit_words($excerpt,40); ?></span>
+				</div>
+			</article>
+				<?php
+			}else
+			{
+				?>
+			<article class="GossipNews" id="SctFtd<?=$ps?>">
+				<?php
+				if(has_post_thumbnail()) 
+				{
+					$attr = array(
+					'class'	=> "news_gsps_img"
+					);
+					(the_post_thumbnail("gossipsmall",$attr));
+				}else 
+				{
+				}
+				?>	 
+				<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle">
+					<?php  string_limit_words(the_title(),12); ?>
+				</a>
+			</article>
+				<?php
+			}
+			$PostIDs[$postid]='gossip';
+			$ps++; 
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		</div>
+
+<?php
+$banner=12;
+$queryG=$wpdb->prepare("SELECT a.ads_id AS id, b.anb_image AS img, b.anb_url AS link, s.anbs_height AS h, s.anbs_width AS w, a.ads_maxheight AS maxh, a.ads_maxwidth AS maxw FROM wp_an_ads_publicidad AS a LEFT JOIN wp_an_ads_banners AS b ON a.ads_anb_id=b.anb_id LEFT JOIN wp_an_ads_banners_size AS s ON b.anb_anbs_id=s.anbs_id WHERE a.ads_id =%d",$banner);
+$qbgsp=$wpdb->get_results($queryG,OBJECT_K);
+
+if(($wpdb->num_rows>0)&&(!is_null($qbgsp[$banner]->img))&&($qbgsp[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qbgsp[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qbgsp[$banner]->img,"banner{$qbgsp[$banner]->w}x{$qbgsp[$banner]->h}");
+		if(trim($qbgsp[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qbgsp[$banner]->w?>x<?=$qbgsp[$banner]->h?> BannerLeft BannerGossip">
+		<a href="<?=$qbgsp[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qbgsp[$banner]->w?>x<?=$qbgsp[$banner]->h?> BannerLeft BannerGossip">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}else 
+{
+	$qgsp=$wpdb->get_results("SELECT a.ana_id AS id, a.ana_code AS code, s.anas_height AS h, s.anas_width AS w FROM wp_an_ads_adsense AS a LEFT JOIN wp_an_ads_adsense_size AS s ON a.ana_anas_id=s.anas_id WHERE a.ana_anp_id =5 ORDER BY a.ana_id",OBJECT_K);
+
+	if($wpdb->num_rows>0)
+	{
+		$toth=0;
+		$maxheight=410;
+		?>
+	<div class="AdSenseGossip BannerLeft">
+		<?php
+		foreach($qgsp as $gads)
+		{
+			if((($toth+$gads->h)<=$maxheight)&&($totAds<$MaxAds)) 
+			{
+				$isnull=(!is_null($gads->code))? (($gads->h <= $qbgsp[$banner]->maxh)&&($gads->w <= $qbgsp[$banner]->maxw))? true: false: false;
+				if($isnull)
+				{
+					$toth=$toth+$gads->h;
+					?>
+		<div class="AdSense-cnt Adsense<?=$gads->w?>x<?=$gads->h?>">
+			<?=stripslashes($gads->code)?>
+		</div>
+					<?php
+					$totAds++;
+				}			
+			}
+		}
+		?>
+	</div>
+		<?php
+		$wpdb->flush();
+	}		
+}
+
+?>
+		
+		
+		<div id="Cartelera" class="LoadingBar">
+			<h2>Estrenos de Cine</h2>
+		</div>
+		<!--Noticias Farandula-->
+	</section>
+	<!--Seccion Noticias Farandula-->	
+	
+	
+<?php
+$banner=5;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}elseif($totAds<$MaxAds) 
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads]))
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+		}else 
+		{
+			$ads++;
+		}
+		
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense AdsenseFullW BannerClear ">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>
+	
+<!--Seccion Noticias Tema1-->
+<section id="CntTrv" class="SiteCnt">
+		
+<?php
+$np=0;
+$ps=0;
+while($TagPost['travels']>$ps) 
+{
+	query_posts("showposts=1&tag=travels&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{	
+			?>
+	<article class="TrvNews">
+			<?php
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "trv_img"
+				);
+				the_post_thumbnail("flashnews",$attr);
+			}else 
+			{
+			}
+			?> 
+		<label class="categoria"><?php the_category(' '); ?></label>
+		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle">
+			<?php  string_limit_words(the_title(),15); ?>
+		</a>
+	</article>
+			<?php
+			$PostIDs[$postid]='travels';
+			$ps++; 
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+
+$banner=6;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> BannerNoMargin BannerRight">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> BannerNoMargin BannerRight">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}else if($totAds<$MaxAds)
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+			
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense BannerRight BannerNoMargin">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>		
+</section>
+<!--Fin Seccion Noticias Tema1-->
+	
+	
+		
+<?php
+$banner=7;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}else if($totAds<$MaxAds)
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense AdsenseFullW BannerClear">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>		
+		
+	<!--Inicio Flash2 de Noticias-->
+	<section id="Flash2" class="SiteCnt CntFlash">
+
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['newsflash2']>$ps) 
+{
+	query_posts("showposts=1&tag=newsflash2&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{	
+			if($ps<4) 
+			{
+				?>
+			<article class="NewsFls">
+				<?php
+			}else 
+			{
+				?>
+			<article class="NewsFls NotBtmBorder">
+				<?php
+			}	 
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_flash_img"
+				);
+				the_post_thumbnail("flashnews",$attr);
+			}else 
+			{
+			}
+			?> 
+	      	<label class="categoria"><?php the_category(' '); ?></label>
+	      	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?></a>
+			</article>
+			<?php 
+			$PostIDs[$postid]='newsflash2';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+	</section>
+		<!--Fin Flash2 de Noticias-->
+		
+<?php
+$banner=8;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}elseif($totAds<$MaxAds) 
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense AdsenseFullW BannerClear">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>	
+
+
+	<!--Inicio Extra1 de Noticias-->
+	<section id="Extra1" class="SiteCnt CntExtra">
+		<div class="CntExtraNews">
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['extra1']>$ps) 
+{
+	query_posts("showposts=1&tag=extra1&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{	
+			if($ps<4) 
+			{
+				?>
+			<article class="NewsExtra">
+				<?php
+			}else 
+			{
+				?>
+			<article class="NewsExtra NotBtmBorder">
+				<?php
+			}	 
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_extra_img"
+				);
+				the_post_thumbnail("flashnews",$attr);
+			}else 
+			{
+			}
+			?> 
+				<label class="categoria"><?php the_category(' '); ?></label>
+	      	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>"  class="NTitle"><?php the_title(); ?></a>
+			</article>
+			<?php 
+			$PostIDs[$postid]='extra1';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		</div>
+		<iframe src="http://widgets.datafactory.la/es/primeraa/posiciones.html#championship=primeraa&appIdTrack=3159&show-descentTable=1&team=-1&lang=es&show-positionsTable=1&show-PlayedGames=0&show-Goals=0&show-AgainstGoals=0&show-WinGames=0&show-TieGames=0&show-LostGames=0&show-Diff=0&show-DescentPlayedGames=1&show-DescentPoints=1&show-fixtureTable=1&show-nameDays=1&dateFormat=mmdd&show-goalsTable=0&show-GoalsColumnTeams=1&show-GoalsDetails=1&css-width=235&css-backgroundColor=%23ffffff&css-textColor=%23343434&css-desTxtColor=%23f5032b&css-lineColor=%23D1D3D4&css-desEquipoBgColor=%23dce0e0&css-desEquipoTxtColor=%23e61739&css-navBgColorSel=%230a75bd&css-navColorSel=%23FFFFFF&css-navBgColor=%23ffffff&css-navColor=%232f63bd&css-titleFontFamily=%22Trebuchet%20MS%22%2Csans-serif&css-titlePoints=16&css-titleWeight=1&css-titleItalic=0&css-tabsFontFamily=%22Trebuchet%20MS%22%2Csans-serif&css-tabsPoints=12&css-tabsWeight=0&css-tabsItalic=0&css-mainFontFamily=%22Trebuchet%20MS%22%2Csans-serif&css-mainPoints=12&css-mainWeight=0&css-mainItalic=0&css-height=520&css-tabsColor=%23FFFFFF&css-rowColor=%23BD0926&css-textRowColor=%23FFFFFF&css-borderColor=%23D1D3D4&css-golColor=%23BD0926&css-estadoColor=%23BD0926"  frameborder="0"  width="235"  height="520" id="TablaDePosiciones" ></iframe>
+	</section>
+		<!--Fin Flash2 de Noticias-->		
+	
+	<!--Seccion Noticias Principales2-->
+	<section class="SiteCnt CntPrincipal">
+	<!--Noticias Featured2-->
+		<div class="CntNewsDest">
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['featured2']>$ps) 
+{
+	query_posts("showposts=1&tag=featured2&offset=$np");
+   if (have_posts()) : the_post();
+   	$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{
+   		?>
+   	   <article class="NewsDest">
+			<?php 
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_dest_img"
+				);
+				the_post_thumbnail("featured",$attr);
+			}else 
+			{
+			}
+			?> 
+      		<div class="NewsCopete">
+	      		<label class="categoria"><?php the_category(' '); ?></label>
+     				<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?> </a>
+     				<p class="ExtractDest"><?php $excerpt = get_the_excerpt(); echo string_limit_words($excerpt,20); ?></p>
+      		</div>
+      	</article>
+			<?php 
+		$PostIDs[$postid]='featured2';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		</div>
+		<!--Fin Noticias Featured2-->
+		<!--Inicio Noticias Headlines2-->
+		<div class="CntNewsPrinc CntNewsPrincSmall">
+<?php
+$np=0;
+$ps=0;
+while($TagPost['headlines2']>$ps) 
+{
+	query_posts("showposts=1&tag=headlines2&offset=$np");
+   if (have_posts()) : the_post();
+   	$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{
+			?>
+		<article class="NewsPrinc NewsHL2">			
+			<?php
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_princ_img"
+				);
+				the_post_thumbnail("headlines",$attr);
+			}else 
+			{
+			}
+			?> 
+      		<label class="categoria"><?php the_category(' '); ?></label>
+      		<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?></a>
+			</article>
+			<?php 
+			$PostIDs[$postid]='headlines2';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+		</div>
+	<!--Fin Noticias Headlines2-->
+	
+	<?php
+$banner=9;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> BannerNoMargin BannerRight">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> BannerNoMargin BannerRight">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}else if($totAds<$MaxAds)
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense BannerRight BannerNoMargin">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>		
+
+<?php
+$banner=10;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerRight">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerRight">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}else if($totAds<$MaxAds)
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense  BannerRight">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>		
+</section>
+	<!--Fin Seccion Noticias Principales2-->
+	
+	<?php
+$banner=11;
+if(($rCb>0)&&(!is_null($qb1[$banner]->img))&&($qb1[$banner]->id==$banner))
+{
+	if(wp_get_attachment_url($qb1[$banner]->img))
+	{
+		$ban=wp_get_attachment_image_src($qb1[$banner]->img,"banner{$qb1[$banner]->w}x{$qb1[$banner]->h}");
+		if(trim($qb1[$banner]->link)!=="") 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<a href="<?=$qb1[$banner]->link?>" target="_blank">
+			<img src="<?=$ban[0]?>" alt="" >
+		</a>
+	</div>
+			<?php
+		}else 
+		{
+			?>
+	<div class="Banner<?=$qb1[$banner]->w?>x<?=$qb1[$banner]->h?> Banner BannerClear">
+		<img src="<?=$ban[0]?>" alt="" >
+	</div>
+		<?php
+		}
+	}
+}elseif($totAds<$MaxAds) 
+{
+	$ads=1;
+	$x=0;
+	$isnull=!($ads<$rCa);
+	while((!$isnull)&&($x<$rCa)) 
+	{
+		if(isset($qads[$ads])) 
+		{
+			$isnull=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh)&&($qads[$ads]->w <= $qb1[$banner]->maxw))? true: false: false;
+
+		
+			$ads=(!is_null($qads[$ads]->code))? (($qads[$ads]->h <= $qb1[$banner]->maxh) && ($qads[$ads]->w <= $qb1[$banner]->maxw))? $ads: $ads+1: $ads+1;
+
+		}else 
+		{
+			$ads++;
+		}
+		$x++;
+	}
+
+	if(($isnull)&&($ads<=$rCa))
+	{
+		?>
+	<div class="AdSense AdsenseFullW BannerClear">
+		<div class="AdSense-cnt Adsense<?=$qads[$ads]->w?>x<?=$qads[$ads]->h?>">
+		<?=stripslashes($qads[$ads]->code)?>
+		</div>
+	</div>
+		<?php
+		$totAds++;
+		unset($qads[$ads]);
+	}
+}
+
+?>	
+	
+	
+	<section id="Flash3" class="SiteCnt CntFlash">
+		<!--Inicio Flash3 de Noticias-->
+<?php 
+$np=0;
+$ps=0;
+while($TagPost['newsflash3']>$ps) 
+{
+	query_posts("showposts=1&tag=newsflash3&offset=$np");
+	if (have_posts()) : the_post();
+		$postid = get_the_ID();
+   	if(!isset($PostIDs[$postid])) 
+   	{	
+			if($ps<4) 
+			{
+				?>
+			<article class="NewsFls">
+				<?php
+			}else 
+			{
+				?>
+			<article class="NewsFls NotBtmBorder">
+				<?php
+			}	 
+			if(has_post_thumbnail()) 
+			{
+				$attr = array(
+				'class'	=> "news_flash_img"
+				);
+				the_post_thumbnail("flashnews",$attr);
+			}else 
+			{
+			}
+			?> 
+	      	<label class="categoria"><?php the_category(' '); ?></label>
+	      	<a href="<?php the_permalink() ?>" title="<?php the_title(); ?>" class="NTitle"><?php the_title(); ?></a>
+			</article>
+			<?php 
+			$PostIDs[$postid]='headlines';
+			$ps++;
+		} 
+	endif;
+	wp_reset_query();
+	$np++;
+}
+?>
+	</section>
+	<!--Fin Flash3 de Noticias-->	
+	<!--Inicio Footer-->
+<?php get_footer(); ?>
+	<!--Fin Footer-->

@@ -1,0 +1,124 @@
+/*------------------------------------------------------------------------
+# Aliweb News WordPress Theme - Julio 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# Copyright (C) 2013 Aliweb Desarrollo. Todos los derechos reservados.
+# @license - Aliweb News WordPress Theme is available under the terms of the GNU General Public License.
+# @license - Aliweb News WordPress Theme esta disponible bajo los terminos de las licencias GNU General Public License.
+# Author: http://www.aliweb.com.ar
+# Autor: http://www.aliweb.com.ar
+# Websites:  http://www.aliweb.com.ar
+-------------------------------------------------------------------------*/
+
+/*Estilos para las categorias del Diario*/
+
+#Cnt-Cat
+{
+	width: 690px;
+	float: left;
+	vertical-align: top;
+	min-height: 300px;
+}
+
+#Cnt-Cat .Cat-Name
+{
+	display: block;
+	background-color: #fff;
+	color: #a20000;
+	font-size: 30px;
+	font-variant: small-caps;
+	line-height: 30px;
+	text-transform: capitalize;
+	padding:5px;
+}
+
+#Cnt-Cat .Cat-Desc
+{
+	display: block;
+	line-height: 14px;
+	font-size: 12px;
+	padding:5px;
+	background-color: #C61400;
+	color: #fff;
+}
+
+#Cnt-Cat .Cat-Desc p
+{
+	color: #fff;
+}
+
+#Cnt-Cat .NArticle
+{
+	width: 210px;
+	padding:10px 10px 15px;
+	float: left;
+	vertical-align: top;
+	overflow: hidden;
+	height: 350px;
+	border-bottom: 3px solid rgba(170,170,170,1);
+}
+
+#Cnt-Cat .NArticle:nth-of-type(3n+2)
+{
+	border-left:2px solid rgba(200, 200, 200, 0.8);
+	border-right:2px solid rgba(200, 200, 200, 0.8);
+	padding: 10px 8px 15px;
+}
+
+#Cnt-Cat .NArticle:hover
+{
+	background-color: #eee;
+}
+
+
+.NArticle .NArt-Title
+{
+	font-size: 18px;
+	line-height: 25px;
+	height: 75px;
+	margin:0px;
+	display: block;
+	text-align: justify;
+	overflow: hidden;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}
+
+.NArticle .NArt-Title:hover
+{
+	color: #a20000;
+}
+
+.NArticle .NArt-img
+{
+	width: 200px;
+	height: 120px;
+	display: block;
+	margin:5px auto;
+	padding:2px;
+	border:4px solid #aaa;
+	-moz-box-shadow: inset 0px 0px 10px #000;
+	-webkit-box-shadow: inset 0px 0px 10px #000;
+	box-shadow: inset 0px 0px 10px #000;
+}
+
+/*.NArticle .NArt-img:hover, .NArt-Title:hover ~ .NArt-img
+{
+	border-color: #a20000;
+}
+*/
+.NArticle .NArt-Copete
+{
+	font-size: 12px;
+	line-height: 16px;
+	max-height: 128px;
+	text-align: justify;
+	-moz-hyphens: auto;
+	-ms-hyphens:auto;
+	-o-hyphens:auto;
+	-webkit-hyphens:auto;
+	hyphens: auto;
+}

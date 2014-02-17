@@ -1,0 +1,264 @@
+/*Inicio estilo Banners*/
+.Banner
+{
+	overflow: hidden;
+	margin: 20px auto;
+	display: block;
+}
+
+.BannerLeft
+{
+	float: left;
+}
+
+.BannerRight
+{
+	float: right;
+}
+
+.BannerClear
+{
+	clear: both;
+}
+
+.Banner200x200
+{
+	height: 200px;
+	width: 200px;
+}
+
+.Banner200x200 img
+{
+	height: 200px;
+	width: 200px;
+}
+
+.Banner250x250
+{
+	height: 250px;
+	width: 250px;
+}
+
+.Banner250x250 img
+{
+	height: 250px;
+	width: 250px;
+}
+
+.Banner250x300
+{
+	height: 300px;
+	width: 250px;
+}
+
+.Banner250x300 img
+{
+	height: 300px;
+	width: 250px;
+}
+
+.Banner950x100
+{
+	width: 950px;
+	height: 100px;
+	clear: both;
+}
+
+.Banner950x100 img
+{
+	width: 950px;
+	height: 100px;
+}
+.Banner950x150
+{
+	width: 950px;
+	height: 150px;
+	clear: both;
+}
+
+.Banner950x150 img
+{
+	width: 950px;
+	height: 150px;
+}
+
+
+.Banner950x200
+{
+	width: 950px;
+	height: 200px;
+	clear: both;
+}
+
+.Banner950x200 img
+{
+	width: 950px;
+	height: 200px;
+}
+
+.Banner180x410
+{
+	width: 180px;
+	height: 410px;
+}
+
+.Banner180x410 img
+{
+	width: 180px;
+	height: 410px;
+}
+
+.Banner200x410
+{
+	width: 200px;
+	height: 410px;
+}
+
+.Banner200x410 img
+{
+	width: 200px;
+	height: 410px;
+}
+
+.AdSense
+{
+	margin:20px auto;
+}
+
+.AdsenseFullW
+{
+	width: 950px;
+	text-align: center;
+}
+
+.BannerNoMargin
+{
+	margin:0px;
+}
+
+.AdSenseGossip, .BannerGossip 
+{
+	margin:0px 7px;
+	width: 180px;
+	text-align: center;
+	height: 410px;
+}
+
+.AdSense-cnt
+{
+	margin:0px auto;
+}
+
+.AdsenseBottom
+{
+	margin-bottom: 10px;
+}
+
+.Adsense300x250
+{
+	width: 300px;
+	height: 250px;
+}
+
+.Adsense336x280
+{
+	width: 336px;
+	height: 280px;
+}
+
+.Adsense728x90
+{
+	width: 728px;
+	height: 90px;
+}
+
+.Adsense160x600
+{
+	width: 160px;
+	height: 600px;
+}
+
+.Adsense468x60
+{
+	width: 468px;
+	height: 60px;
+}
+
+.Adsense234x60
+{
+	width: 234px;
+	height: 60px;
+}
+
+.Adsense120x600
+{
+	width: 120px;
+	height: 600px;
+}
+
+.Adsense120x240
+{
+	width: 120px;
+	height: 240px;
+}
+
+.Adsense250x250
+{
+	width: 250px;
+	height: 250px;
+}
+
+.Adsense200x200
+{
+	width: 200px;
+	height: 200px;
+}
+
+.Adsense180x150
+{
+	width: 180px;
+	height: 150px;
+}
+
+.Adsense125x125
+{
+	width: 125px;
+	height: 125px;
+}
+
+.Adsense728x15
+{
+	width: 728px;
+	height: 15px;
+}
+
+.Adsense468x15
+{
+	width: 468px;
+	height: 15px;
+}
+
+.Adsense200x90
+{
+	width: 200px;
+	height: 90px;
+}
+
+.Adsense180x90
+{
+	width: 180px;
+	height: 90px;
+}
+
+.Adsense160x90
+{
+	width: 160px;
+	height: 90px;
+}
+
+.Adsense120x90
+{
+	width: 120px;
+	height: 90px;
+}
+/*Fin estilo Banners*/

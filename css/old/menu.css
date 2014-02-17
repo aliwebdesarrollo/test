@@ -1,0 +1,152 @@
+/*------------------------------------------------------------------------
+# Aliweb News WordPress Theme - Agosto 2013
+# ------------------------------------------------------------------------
+# Copyright (C) 2013 Aliweb Desarrollo. All Rights Reserved.
+# Copyright (C) 2013 Aliweb Desarrollo. Todos los derechos reservados.
+# @license - Aliweb News WordPress Theme is available under the terms of the GNU General Public License.
+# @license - Aliweb News WordPress Theme esta disponible bajo los terminos de las licencias GNU General Public License.
+# Author: http://www.aliweb.com.ar
+# Autor: http://www.aliweb.com.ar
+# Websites:  http://www.aliweb.com.ar
+-------------------------------------------------------------------------*/
+
+/*Inicio estilos Menues*/
+
+#mainmenu
+{
+	width: 950px;
+	height:30px;
+	clear: both;
+	margin:0px auto 20px;
+	position: relative;
+	z-index: 1000; 
+	border:0px none;
+	border-bottom:2px solid #fff;
+	/*background-color: #a40000;*/
+	background-color: #DD1818;
+}
+
+#mainmenu #aliweb-menu
+{
+	margin:0px;
+}
+
+
+#mainmenu #aliweb-menu .menu-item
+{
+	/*background-color: #A40000;*/
+	background-color: #DD1818;
+	float: left;
+	border:0px none;
+	border-bottom:2px solid #eee;
+	box-shadow:0px 0px 1px #555;
+}
+
+#mainmenu #aliweb-menu .menu-item a
+{
+	padding:0px 10px;
+	color: #fff;
+	height: 30px;
+	font: 400 12px/30px Trebuchet MS;
+	display: block;
+	position: relative;
+}
+
+
+#mainmenu #aliweb-menu .menu-item:hover, 
+#mainmenu #aliweb-menu .current-menu-item, 
+#mainmenu #aliweb-menu .current-category-parent
+{
+	border-bottom: 2px solid #000;
+	background-color: rgba(255,255,255,1);
+}
+
+#mainmenu #aliweb-menu .menu-item:hover>a, 
+#mainmenu #aliweb-menu .current-menu-item>a, 
+#mainmenu #aliweb-menu .current-category-parent>a
+{
+	color: #a40000;
+}
+
+
+#mainmenu ul li:hover a, 
+#mainmenu>ul>li.current-menu-item>a, 
+#mainmenu>ul>li.current-category-parent a
+{
+	color: #a40000;
+}
+
+#mainmenu ul li ul
+{
+	display: none;	
+	position: relative;
+}
+
+#mainmenu ul li:hover ul
+{
+	display: block;	
+	border:0px none;
+	box-shadow:0px 2px 5px #000;
+	border-radius:0px 0px 5px 5px;
+	overflow: hidden;
+	position: absolute;
+	min-width: 125px;
+}
+
+#mainmenu .sub-menu li
+{
+	display: block;
+	clear: both;
+	width: 100%;
+	
+}
+
+#mainmenu ul li ul li, 
+#mainmenu ul li ul li:hover
+{
+	border-bottom: 0.1px solid #aaa;
+	background-color: rgba(164,0,0,0.95);
+	overflow: hidden;
+	top: 30px;
+}
+
+#mainmenu ul li ul li:last-child
+{
+	border:0px none;
+}
+
+#mainmenu ul li ul li:hover
+{
+	background-color: rgba(255,255,255,1);
+	color: #a40000;
+}
+
+#mainmenu ul li:hover ul li a
+{
+	background:none;
+	color: #fff;
+	display: block;
+	position: relative;
+}
+
+#mainmenu ul li ul li:hover a
+{
+	color: #a40000;
+}
+
+#mainmenu  .menu-item
+{
+	float: left;
+	margin:0px;
+}
+
+#mainmenu  .menu-item ul
+{
+	width: auto;
+	min-width: 100px;
+}
+
+#mainmenu  .menu-item li:hover ul,
+#mainmenu  .menu-item li ul {
+	top:32px; /* match top ul list item height */
+}
